@@ -11,7 +11,6 @@ protocol DiffableDataSourceTopicViewFactoryProtocol {
     func makeCollectionViewLayout() -> UICollectionViewLayout
 }
 
-
 struct DiffableDataSourceTopicViewFactory: DiffableDataSourceTopicViewFactoryProtocol {
     
     private var topItem: NSCollectionLayoutItem {
