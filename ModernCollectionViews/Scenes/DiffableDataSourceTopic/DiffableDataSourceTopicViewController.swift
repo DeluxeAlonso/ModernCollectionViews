@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DiffableDataSourceTopicViewController: UIViewController {
+final class DiffableDataSourceTopicViewController: UIViewController {
     
     enum Section {
         case main

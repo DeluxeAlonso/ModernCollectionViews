@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ListsTopicCollectionViewController: UICollectionViewController {
+final class ListsTopicCollectionViewController: UICollectionViewController {
     
     enum Section {
         case main

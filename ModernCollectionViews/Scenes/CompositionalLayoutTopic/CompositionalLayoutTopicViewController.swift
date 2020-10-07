@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CompositionalLayoutTopicViewController: UICollectionViewController {
+final class CompositionalLayoutTopicViewController: UICollectionViewController {
     
     enum Section {
         case main
