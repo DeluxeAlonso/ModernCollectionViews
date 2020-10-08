@@ -9,7 +9,7 @@ import UIKit
 
 final class DiffableDataSourceTopicView: UIView {
     
-    private lazy var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -18,7 +18,7 @@ final class DiffableDataSourceTopicView: UIView {
         return collectionView
     }()
     
-    private lazy var segmentedControl: UISegmentedControl = {
+    lazy var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["All", "Odd", "Even"])
         segmentedControl.backgroundColor = .systemGroupedBackground
         segmentedControl.selectedSegmentIndex = 0

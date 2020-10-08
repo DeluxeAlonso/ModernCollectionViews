@@ -17,8 +17,8 @@ final class CompositionalLayoutTopicViewController: UICollectionViewController {
     
     // MARK: - Initializers
     
-    override init(collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(collectionViewLayout: layout)
+    init() {
+        super.init(collectionViewLayout: UICollectionViewLayout())
     }
     
     required init?(coder: NSCoder) {
