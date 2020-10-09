@@ -49,6 +49,7 @@ struct CompositionalLayoutTopicViewFactory: CompositionalLayoutTopicViewFactoryP
                                               heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
+        
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                heightDimension: .absolute(100))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
