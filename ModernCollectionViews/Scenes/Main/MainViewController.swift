@@ -9,19 +9,22 @@ import UIKit
 
 final class MainViewController: UICollectionViewController {
     
-    private var viewModel: MainViewModelProtocol = MainViewModel()
+    private let viewModel: MainViewModelProtocol
     private var dataSource: UICollectionViewDiffableDataSource<Section, Topic>!
+    
+    weak var coordinator: MainCoordinatorProtocol?
     
     private var sections: [Section] = [.iOS13, .iOS14]
     
     // MARK: - Initializers
     
-    init() {
+    init(viewModel: MainViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(collectionViewLayout: UICollectionViewLayout())
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError()
     }
     
     // MARK: - Lifecycle
