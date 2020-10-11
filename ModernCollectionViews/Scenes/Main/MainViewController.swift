@@ -101,7 +101,7 @@ final class MainViewController: UICollectionViewController {
         
         switch viewModel.topic(for: indexPath.row, at: section) {
         case .collectionViewLists:
-            viewController = ListsTopicCollectionViewController()
+            viewController = ListsTopicViewController()
         case .compositionalLayouts:
             viewController = CompositionalLayoutTopicViewController()
         case .diffableDataSources:

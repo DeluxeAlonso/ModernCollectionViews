@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2391EE22532D408004E49AB /* ListTopicCollectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2391EE12532D408004E49AB /* ListTopicCollectionCoordinator.swift */; };
 		E272304825300AAC004D876A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272304725300AAC004D876A /* Coordinator.swift */; };
 		E272304D253010B9004D876A /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272304C253010B9004D876A /* MainCoordinator.swift */; };
 		E2B5F9CC252D7BE60018293C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5F9CB252D7BE60018293C /* AppDelegate.swift */; };
@@ -25,7 +26,7 @@
 		E2B5FA29252D7C7F0018293C /* DiffableDataSourceTopicViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA21252D7C7F0018293C /* DiffableDataSourceTopicViewFactory.swift */; };
 		E2B5FA2A252D7C7F0018293C /* CompositionalLayoutTopicViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA23252D7C7F0018293C /* CompositionalLayoutTopicViewFactory.swift */; };
 		E2B5FA2B252D7C7F0018293C /* CompositionalLayoutTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA24252D7C7F0018293C /* CompositionalLayoutTopicViewController.swift */; };
-		E2B5FA2C252D7C7F0018293C /* ListsTopicCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA26252D7C7F0018293C /* ListsTopicCollectionViewController.swift */; };
+		E2B5FA2C252D7C7F0018293C /* ListsTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA26252D7C7F0018293C /* ListsTopicViewController.swift */; };
 		E2B5FA37252D7C930018293C /* Dequeuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA31252D7C930018293C /* Dequeuable.swift */; };
 		E2B5FA38252D7C930018293C /* UICollectionView+Dequeuing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA33252D7C930018293C /* UICollectionView+Dequeuing.swift */; };
 		E2B5FA39252D7C930018293C /* Array+Filtering.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA34252D7C930018293C /* Array+Filtering.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E2391EE12532D408004E49AB /* ListTopicCollectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTopicCollectionCoordinator.swift; sourceTree = "<group>"; };
 		E272304725300AAC004D876A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E272304C253010B9004D876A /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		E2B5F9C8252D7BE60018293C /* ModernCollectionViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModernCollectionViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +76,7 @@
 		E2B5FA21252D7C7F0018293C /* DiffableDataSourceTopicViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceTopicViewFactory.swift; sourceTree = "<group>"; };
 		E2B5FA23252D7C7F0018293C /* CompositionalLayoutTopicViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutTopicViewFactory.swift; sourceTree = "<group>"; };
 		E2B5FA24252D7C7F0018293C /* CompositionalLayoutTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutTopicViewController.swift; sourceTree = "<group>"; };
-		E2B5FA26252D7C7F0018293C /* ListsTopicCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsTopicCollectionViewController.swift; sourceTree = "<group>"; };
+		E2B5FA26252D7C7F0018293C /* ListsTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsTopicViewController.swift; sourceTree = "<group>"; };
 		E2B5FA31252D7C930018293C /* Dequeuable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dequeuable.swift; sourceTree = "<group>"; };
 		E2B5FA33252D7C930018293C /* UICollectionView+Dequeuing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Dequeuing.swift"; sourceTree = "<group>"; };
 		E2B5FA34252D7C930018293C /* Array+Filtering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Filtering.swift"; sourceTree = "<group>"; };
@@ -171,9 +173,9 @@
 		E2B5FA02252D7C080018293C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				E2B5FA25252D7C7F0018293C /* CollectionViewLists */,
-				E2B5FA22252D7C7F0018293C /* CompositionalLayoutTopic */,
-				E2B5FA1E252D7C7F0018293C /* DiffableDataSourceTopic */,
+				E2B5FA25252D7C7F0018293C /* Lists */,
+				E2B5FA22252D7C7F0018293C /* CompositionalLayout */,
+				E2B5FA1E252D7C7F0018293C /* DiffableDataSource */,
 				E2B5FA0C252D7C4E0018293C /* Main */,
 			);
 			path = Scenes;
@@ -200,31 +202,32 @@
 			path = ViewComponents;
 			sourceTree = "<group>";
 		};
-		E2B5FA1E252D7C7F0018293C /* DiffableDataSourceTopic */ = {
+		E2B5FA1E252D7C7F0018293C /* DiffableDataSource */ = {
 			isa = PBXGroup;
 			children = (
 				E2B5FA1F252D7C7F0018293C /* DiffableDataSourceTopicViewController.swift */,
 				E2B5FA20252D7C7F0018293C /* DiffableDataSourceTopicView.swift */,
 				E2B5FA21252D7C7F0018293C /* DiffableDataSourceTopicViewFactory.swift */,
 			);
-			path = DiffableDataSourceTopic;
+			path = DiffableDataSource;
 			sourceTree = "<group>";
 		};
-		E2B5FA22252D7C7F0018293C /* CompositionalLayoutTopic */ = {
+		E2B5FA22252D7C7F0018293C /* CompositionalLayout */ = {
 			isa = PBXGroup;
 			children = (
 				E2B5FA23252D7C7F0018293C /* CompositionalLayoutTopicViewFactory.swift */,
 				E2B5FA24252D7C7F0018293C /* CompositionalLayoutTopicViewController.swift */,
 			);
-			path = CompositionalLayoutTopic;
+			path = CompositionalLayout;
 			sourceTree = "<group>";
 		};
-		E2B5FA25252D7C7F0018293C /* CollectionViewLists */ = {
+		E2B5FA25252D7C7F0018293C /* Lists */ = {
 			isa = PBXGroup;
 			children = (
-				E2B5FA26252D7C7F0018293C /* ListsTopicCollectionViewController.swift */,
+				E2B5FA26252D7C7F0018293C /* ListsTopicViewController.swift */,
+				E2391EE12532D408004E49AB /* ListTopicCollectionCoordinator.swift */,
 			);
-			path = CollectionViewLists;
+			path = Lists;
 			sourceTree = "<group>";
 		};
 		E2B5FA30252D7C930018293C /* Protocols */ = {
@@ -392,7 +395,8 @@
 				E2B5FA29252D7C7F0018293C /* DiffableDataSourceTopicViewFactory.swift in Sources */,
 				E272304825300AAC004D876A /* Coordinator.swift in Sources */,
 				E2B5FA28252D7C7F0018293C /* DiffableDataSourceTopicView.swift in Sources */,
-				E2B5FA2C252D7C7F0018293C /* ListsTopicCollectionViewController.swift in Sources */,
+				E2391EE22532D408004E49AB /* ListTopicCollectionCoordinator.swift in Sources */,
+				E2B5FA2C252D7C7F0018293C /* ListsTopicViewController.swift in Sources */,
 				E2B5FA1A252D7C720018293C /* SectionHeaderView.swift in Sources */,
 				E2B5FA37252D7C930018293C /* Dequeuable.swift in Sources */,
 				E2B5FA13252D7C5B0018293C /* MainViewController.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  ListsTopicCollectionViewController.swift
+//  ListsTopicViewController.swift
 //  ModernCollectionViews
 //
 //  Created by Alonso on 10/5/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ListsTopicCollectionViewController: UICollectionViewController {
+final class ListsTopicViewController: UICollectionViewController {
     
     enum Section {
         case main
