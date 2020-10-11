@@ -16,6 +16,8 @@ final class ListsTopicViewController: UICollectionViewController {
     
     private var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
     
+    weak var coordinator: ListTopicCoordinatorProtocol?
+    
     // MARK: - Initializers
     
     init() {

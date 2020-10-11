@@ -11,7 +11,7 @@ protocol MainCoordinatorProtocol: class {
     
 }
 
-final class MainCoordinator: NSObject, MainCoordinatorProtocol {
+final class MainCoordinator: NSObject, Coordinator, MainCoordinatorProtocol {
     
     var childCoordinators: [Coordinator] = []
     var parentCoordinator: Coordinator?
