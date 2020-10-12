@@ -60,13 +60,16 @@ final class DiffableDataSourceTopicViewController: UIViewController {
     private func configureSegmentedControl() {
         let segmentedControl = topicView.segmentedControl
 
-        let all = UIAction(title: "All") { _ in self.updateUI(with: self.numbers) }
+        let all = UIAction(title: "All") { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.updateUI(with: strongSelf.numbers)
+        }
         segmentedControl.setAction(all, forSegmentAt: 0)
 
-        let even = UIAction(title: "Even") { _ in self.updateUI(with: self.numbers.evenNumbers) }
+        let even = UIAction(title: "Even") { [weak self] _ in self?.updateUI(with: self!.numbers.evenNumbers) }
         segmentedControl.setAction(even, forSegmentAt: 1)
 
-        let odd = UIAction(title: "Odd") { _ in self.updateUI(with: self.numbers.oddNumbers) }
+        let odd = UIAction(title: "Odd") { [weak self] _ in self?.updateUI(with: self!.numbers.oddNumbers) }
         segmentedControl.setAction(odd, forSegmentAt: 2)
     }
     
