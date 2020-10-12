@@ -13,11 +13,14 @@ final class CompositionalLayoutTopicViewController: UICollectionViewController {
         case main
     }
     
-    private var factory = CompositionalLayoutTopicViewFactory()
+    private let factory: CompositionalLayoutTopicViewFactoryProtocol
+    
+    weak var coordinator: CompositionalLayoutTopicCoordinatorProtocol?
     
     // MARK: - Initializers
     
-    init() {
+    init(factory: CompositionalLayoutTopicViewFactoryProtocol) {
+        self.factory = factory
         super.init(collectionViewLayout: UICollectionViewLayout())
     }
     

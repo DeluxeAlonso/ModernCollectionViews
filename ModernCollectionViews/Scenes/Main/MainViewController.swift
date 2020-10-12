@@ -97,18 +97,7 @@ final class MainViewController: UICollectionViewController {
         collectionView.deselectItem(at: indexPath, animated: true)
         
         let section = sections[indexPath.section]
-        let viewController: UIViewController
-        
-        switch viewModel.topic(for: indexPath.row, at: section) {
-        case .collectionViewLists:
-            viewController = ListsTopicViewController()
-        case .compositionalLayouts:
-            viewController = CompositionalLayoutTopicViewController()
-        case .diffableDataSources:
-            viewController = DiffableDataSourceTopicViewController()
-        }
-        
-        show(viewController, sender: nil)
+        coordinator?.showTopic(viewModel.topic(for: indexPath.row, at: section))
     }
 
 }

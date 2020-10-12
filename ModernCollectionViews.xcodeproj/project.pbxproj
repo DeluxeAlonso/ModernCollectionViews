@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E2391EE22532D408004E49AB /* ListTopicCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2391EE12532D408004E49AB /* ListTopicCoordinator.swift */; };
+		E2696B252533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696B242533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift */; };
+		E2696B2A253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696B29253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift */; };
 		E272304825300AAC004D876A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272304725300AAC004D876A /* Coordinator.swift */; };
 		E272304D253010B9004D876A /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272304C253010B9004D876A /* MainCoordinator.swift */; };
 		E2B5F9CC252D7BE60018293C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5F9CB252D7BE60018293C /* AppDelegate.swift */; };
@@ -52,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		E2391EE12532D408004E49AB /* ListTopicCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTopicCoordinator.swift; sourceTree = "<group>"; };
+		E2696B242533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutTopicCoordinator.swift; sourceTree = "<group>"; };
+		E2696B29253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceTopicCoordinator.swift; sourceTree = "<group>"; };
 		E272304725300AAC004D876A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E272304C253010B9004D876A /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		E2B5F9C8252D7BE60018293C /* ModernCollectionViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModernCollectionViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +212,7 @@
 				E2B5FA1F252D7C7F0018293C /* DiffableDataSourceTopicViewController.swift */,
 				E2B5FA20252D7C7F0018293C /* DiffableDataSourceTopicView.swift */,
 				E2B5FA21252D7C7F0018293C /* DiffableDataSourceTopicViewFactory.swift */,
+				E2696B29253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift */,
 			);
 			path = DiffableDataSource;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 			children = (
 				E2B5FA23252D7C7F0018293C /* CompositionalLayoutTopicViewFactory.swift */,
 				E2B5FA24252D7C7F0018293C /* CompositionalLayoutTopicViewController.swift */,
+				E2696B242533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift */,
 			);
 			path = CompositionalLayout;
 			sourceTree = "<group>";
@@ -385,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2696B2A253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift in Sources */,
 				E2B5FA2B252D7C7F0018293C /* CompositionalLayoutTopicViewController.swift in Sources */,
 				E2B5FA11252D7C5B0018293C /* MainViewSection.swift in Sources */,
 				E2B5FA12252D7C5B0018293C /* Topic.swift in Sources */,
@@ -405,6 +412,7 @@
 				E2B5FA39252D7C930018293C /* Array+Filtering.swift in Sources */,
 				E2B5FA14252D7C5B0018293C /* MainViewModel.swift in Sources */,
 				E2B5FA3A252D7C930018293C /* NumberedCollectionViewCell.swift in Sources */,
+				E2696B252533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

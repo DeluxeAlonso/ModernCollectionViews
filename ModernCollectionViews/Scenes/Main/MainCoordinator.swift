@@ -9,6 +9,8 @@ import UIKit
 
 protocol MainCoordinatorProtocol: class {
     
+    func showTopic(_ topic: Topic)
+    
 }
 
 final class MainCoordinator: NSObject, Coordinator, MainCoordinatorProtocol {
@@ -29,6 +31,24 @@ final class MainCoordinator: NSObject, Coordinator, MainCoordinatorProtocol {
         
         navigationController.delegate = self
         navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func showTopic(_ topic: Topic) {
+        let coordinator: Coordinator
+        
+        switch topic {
+        case .collectionViewLists:
+            coordinator = ListTopicCoordinator(navigationController: navigationController)
+        case .compositionalLayouts:
+            coordinator = CompositionalLayoutTopicCoordinator(navigationController: navigationController)
+        case .diffableDataSources:
+            coordinator = DiffableDataSourceTopicCoordinator(navigationController: navigationController)
+        }
+        
+        coordinator.parentCoordinator = unwrappedParentCoordinator
+        
+        unwrappedParentCoordinator.childCoordinators.append(coordinator)
+        coordinator.start()
     }
     
 }

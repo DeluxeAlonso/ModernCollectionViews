@@ -14,12 +14,25 @@ final class DiffableDataSourceTopicViewController: UIViewController {
     }
     
     private var topicView: DiffableDataSourceTopicView!
-    private let factory: DiffableDataSourceTopicViewFactoryProtocol = DiffableDataSourceTopicViewFactory()
+    private let factory: DiffableDataSourceTopicViewFactoryProtocol
     
     private var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
     private var currentSnapshot: NSDiffableDataSourceSnapshot<Section, Int>!
     
     private let numbers = Array(0..<100)
+    
+    weak var  coordinator: DiffableDataSourceTopicCoordinatorProtocol?
+    
+    // MARK: - Initializers
+    
+    init(factory: DiffableDataSourceTopicViewFactoryProtocol) {
+        self.factory = factory
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
     
     // MARK: - Lifycycle
     
