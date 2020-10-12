@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class DiffableDataSourceTopicViewController: UIViewController {
     
@@ -14,18 +15,21 @@ final class DiffableDataSourceTopicViewController: UIViewController {
     }
     
     private var topicView: DiffableDataSourceTopicView!
+    private let viewModel: DiffableDataSourceTopicViewModelProtocol
     private let factory: DiffableDataSourceTopicViewFactoryProtocol
     
     private var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
     private var currentSnapshot: NSDiffableDataSourceSnapshot<Section, Int>!
     
-    private let numbers = Array(0..<100)
+    private var cancellables: Set<AnyCancellable> = []
     
-    weak var  coordinator: DiffableDataSourceTopicCoordinatorProtocol?
+    weak var coordinator: DiffableDataSourceTopicCoordinatorProtocol?
     
     // MARK: - Initializers
-    
-    init(factory: DiffableDataSourceTopicViewFactoryProtocol) {
+
+    init(viewModel: DiffableDataSourceTopicViewModelProtocol,
+         factory: DiffableDataSourceTopicViewFactoryProtocol) {
+        self.viewModel = viewModel
         self.factory = factory
         super.init(nibName: nil, bundle: nil)
     }
@@ -44,6 +48,14 @@ final class DiffableDataSourceTopicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "UICollectionViewDiffableDataSource"
+        
+        configureUI()
+        configureBindings()
+        
+        viewModel.selectAllNumbers()
+    }
+    
+    private func configureUI() {
         configureCollectionView()
         configureSegmentedControl()
     }
@@ -60,17 +72,24 @@ final class DiffableDataSourceTopicViewController: UIViewController {
     private func configureSegmentedControl() {
         let segmentedControl = topicView.segmentedControl
 
-        let all = UIAction(title: "All") { [weak self] _ in
-            guard let strongSelf = self else { return }
-            strongSelf.updateUI(with: strongSelf.numbers)
-        }
+        let all = UIAction(title: "All") { [weak self] _ in self?.viewModel.selectAllNumbers() }
         segmentedControl.setAction(all, forSegmentAt: 0)
 
-        let even = UIAction(title: "Even") { [weak self] _ in self?.updateUI(with: self!.numbers.evenNumbers) }
+        let even = UIAction(title: "Even") { [weak self] _ in self?.viewModel.selectEvenNumbers() }
         segmentedControl.setAction(even, forSegmentAt: 1)
 
-        let odd = UIAction(title: "Odd") { [weak self] _ in self?.updateUI(with: self!.numbers.oddNumbers) }
+        let odd = UIAction(title: "Odd") { [weak self] _ in self?.viewModel.selectOddNumbers() }
         segmentedControl.setAction(odd, forSegmentAt: 2)
+    }
+    
+    // MARK: - Reactive Behaviour
+    
+    private func configureBindings() {
+        viewModel.numbersPublisher
+            .receive(on: RunLoop.main)
+            .sink { [weak self] (numbers) in
+                self?.updateUI(with: numbers)
+            }.store(in: &cancellables)
     }
     
     // MARK: - Diffable Data Source
@@ -85,7 +104,6 @@ final class DiffableDataSourceTopicViewController: UIViewController {
             cell.number = number
             return cell
         }
-        updateUI(with: numbers, animated: false)
     }
     
     // MARK: - Diffable Data Source Snapshot

@@ -22,8 +22,10 @@ final class DiffableDataSourceTopicCoordinator: Coordinator, DiffableDataSourceT
     }
     
     func start() {
+        let viewModel = DiffableDataSourceTopicViewModel()
         let factory = DiffableDataSourceTopicViewFactory()
-        let viewController = DiffableDataSourceTopicViewController(factory: factory)
+        let viewController = DiffableDataSourceTopicViewController(viewModel: viewModel,
+                                                                   factory: factory)
         
         viewController.coordinator = self
         
