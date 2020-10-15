@@ -15,3 +15,11 @@ protocol MainViewModelProtocol {
 protocol MainCoordinatorProtocol: class {
     func showTopic(_ topic: Topic)
 }
+
+protocol MainViewFactoryProtocol {
+    
+    var sections: [Section] { get }
+    
+    func topic(for index: Int, at section: Int) -> Topic? 
+    
+}

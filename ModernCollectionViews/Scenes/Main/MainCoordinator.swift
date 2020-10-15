@@ -18,8 +18,8 @@ final class MainCoordinator: NSObject, Coordinator, MainCoordinatorProtocol {
     }
     
     func start() {
-        let viewModel: MainViewModelProtocol = MainViewModel()
-        let viewController = MainViewController(viewModel: viewModel)
+        let factory = MainViewFactory()
+        let viewController = MainViewController(factory: factory)
         
         viewController.coordinator = self
         

@@ -9,17 +9,15 @@ import UIKit
 
 final class MainViewController: UICollectionViewController {
     
-    private let viewModel: MainViewModelProtocol
+    private let factory: MainViewFactoryProtocol
     private var dataSource: UICollectionViewDiffableDataSource<Section, Topic>!
     
     weak var coordinator: MainCoordinatorProtocol?
     
-    private var sections: [Section] = [.iOS13, .iOS14]
-    
     // MARK: - Initializers
     
-    init(viewModel: MainViewModelProtocol) {
-        self.viewModel = viewModel
+    init(factory: MainViewFactoryProtocol) {
+        self.factory = factory
         super.init(collectionViewLayout: UICollectionViewLayout())
     }
     
@@ -78,16 +76,16 @@ final class MainViewController: UICollectionViewController {
             let headerView = collectionView.dequeueReusableView(with: SectionHeaderView.self,
                                                                 kind: UICollectionView.elementKindSectionHeader,
                                                                 for: indexPath)
-            headerView.titleLabel.text = self.sections[indexPath.section].title
+            headerView.titleLabel.text = self.factory.sections[indexPath.section].title
             return headerView
         }
     }
     
     private func updateUI() {
+        let sections = factory.sections
         var snapshot = NSDiffableDataSourceSnapshot<Section, Topic>()
-        snapshot.appendSections([.iOS13, .iOS14])
-        snapshot.appendItems(viewModel.topics(for: .iOS13), toSection: .iOS13)
-        snapshot.appendItems(viewModel.topics(for: .iOS14), toSection: .iOS14)
+        snapshot.appendSections(sections)
+        sections.forEach { snapshot.appendItems($0.topics, toSection: $0) }
         dataSource?.apply(snapshot, animatingDifferences: false)
     }
     
@@ -96,8 +94,10 @@ final class MainViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        let section = sections[indexPath.section]
-        coordinator?.showTopic(viewModel.topic(for: indexPath.row, at: section))
+        guard let topic = factory.topic(for: indexPath.row, at: indexPath.section) else {
+            return
+        }
+        coordinator?.showTopic(topic)
     }
 
 }
