@@ -7,12 +7,6 @@
 
 import UIKit
 
-protocol MainCoordinatorProtocol: class {
-    
-    func showTopic(_ topic: Topic)
-    
-}
-
 final class MainCoordinator: NSObject, Coordinator, MainCoordinatorProtocol {
     
     var childCoordinators: [Coordinator] = []

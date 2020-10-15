@@ -7,13 +7,6 @@
 
 import Foundation
 
-protocol MainViewModelProtocol {
-    
-    func topics(for section: Section) -> [Topic]
-    func topic(for index: Int, at section: Section) -> Topic
-    
-}
-
 struct MainViewModel: MainViewModelProtocol {
     
     func topics(for section: Section) -> [Topic] {
