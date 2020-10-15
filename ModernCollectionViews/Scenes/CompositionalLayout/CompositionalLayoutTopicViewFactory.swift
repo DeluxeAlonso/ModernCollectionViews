@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol CompositionalLayoutTopicViewFactoryProtocol {
-    func makeCollectionViewLayout() -> UICollectionViewLayout
-}
-
-
 struct CompositionalLayoutTopicViewFactory: CompositionalLayoutTopicViewFactoryProtocol {
     
     func makeCollectionViewLayout() -> UICollectionViewLayout {

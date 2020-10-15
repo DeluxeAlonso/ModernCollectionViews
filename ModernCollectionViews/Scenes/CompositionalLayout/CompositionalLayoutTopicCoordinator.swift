@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol CompositionalLayoutTopicCoordinatorProtocol: class {
-    
-}
-
 final class CompositionalLayoutTopicCoordinator: Coordinator, CompositionalLayoutTopicCoordinatorProtocol {
     
     var childCoordinators: [Coordinator] = []
