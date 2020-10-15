@@ -8,17 +8,7 @@
 import Foundation
 import Combine
 
-protocol DiffableDataSourceTopicViewModelProtocol {
-    
-    var numbersPublisher: Published<[Int]>.Publisher { get }
-    
-    func selectAllNumbers()
-    func selectOddNumbers()
-    func selectEvenNumbers()
-    
-}
-
-class DiffableDataSourceTopicViewModel: DiffableDataSourceTopicViewModelProtocol {
+final class DiffableDataSourceTopicViewModel: DiffableDataSourceTopicViewModelProtocol {
     
     @Published var numbersToDisplay: [Int] = []
     

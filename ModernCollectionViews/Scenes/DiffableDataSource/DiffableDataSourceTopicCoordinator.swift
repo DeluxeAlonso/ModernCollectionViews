@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol DiffableDataSourceTopicCoordinatorProtocol: class {
-    
-}
-
 final class DiffableDataSourceTopicCoordinator: Coordinator, DiffableDataSourceTopicCoordinatorProtocol {
     
     var childCoordinators: [Coordinator] = []
