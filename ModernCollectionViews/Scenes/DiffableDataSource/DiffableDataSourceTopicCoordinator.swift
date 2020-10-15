@@ -22,7 +22,7 @@ final class DiffableDataSourceTopicCoordinator: Coordinator, DiffableDataSourceT
     }
     
     func start() {
-        let viewModel = DiffableDataSourceTopicViewModel()
+        let viewModel = DiffableDataSourceTopicViewModel(numbers: Array(0..<100))
         let factory = DiffableDataSourceTopicViewFactory()
         let viewController = DiffableDataSourceTopicViewController(viewModel: viewModel,
                                                                    factory: factory)

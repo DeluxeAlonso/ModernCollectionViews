@@ -26,7 +26,11 @@ class DiffableDataSourceTopicViewModel: DiffableDataSourceTopicViewModelProtocol
         $numbersToDisplay
     }
     
-    private let numbers = Array(0..<100)
+    private let numbers: [Int]
+    
+    init(numbers: [Int]) {
+        self.numbers = numbers
+    }
     
     func selectAllNumbers() {
         numbersToDisplay = numbers
