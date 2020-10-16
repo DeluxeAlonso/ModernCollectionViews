@@ -5,6 +5,11 @@
 
 Sample project that demonstrates what's new in collection views for iOS 13/14.
 
+## Requirements
+
+- iOS 14.0+
+- Xcode 12+
+
 ## Screenshots
 
 <img src="Screenshots/Home.png" width=200 height=433> <img src="Screenshots/Compositional.png" width=200 height=433>
