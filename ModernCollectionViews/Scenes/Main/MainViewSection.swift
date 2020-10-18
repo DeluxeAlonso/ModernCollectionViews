@@ -52,7 +52,7 @@ enum Topic {
         case .compositionalLayouts:
             return "Declarative collection view layouts"
         case .diffableDataSources:
-            return "Collaction view update's management"
+            return "Collection view update's management"
         case .collectionViewLists:
             return "Cell registrations, list cells and content config"
         }
