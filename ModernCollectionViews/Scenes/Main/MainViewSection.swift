@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Section {
+enum MainViewSection {
     case iOS13
     case iOS14
     

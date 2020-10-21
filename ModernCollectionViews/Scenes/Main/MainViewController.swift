@@ -10,7 +10,7 @@ import UIKit
 final class MainViewController: UICollectionViewController {
     
     private let factory: MainViewFactoryProtocol
-    private var dataSource: UICollectionViewDiffableDataSource<Section, Topic>!
+    private var dataSource: UICollectionViewDiffableDataSource<MainViewSection, Topic>!
     
     weak var coordinator: MainCoordinatorProtocol?
     
@@ -64,7 +64,7 @@ final class MainViewController: UICollectionViewController {
             cell.contentConfiguration = content
         }
         
-        dataSource = UICollectionViewDiffableDataSource<Section, Topic>(collectionView: collectionView) {
+        dataSource = UICollectionViewDiffableDataSource<MainViewSection, Topic>(collectionView: collectionView) {
             (collectionView: UICollectionView, indexPath: IndexPath, identifier: Topic) -> UICollectionViewCell? in
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
                                                                     for: indexPath, item: identifier)
@@ -83,7 +83,7 @@ final class MainViewController: UICollectionViewController {
     
     private func updateUI() {
         let sections = factory.sections
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Topic>()
+        var snapshot = NSDiffableDataSourceSnapshot<MainViewSection, Topic>()
         snapshot.appendSections(sections)
         sections.forEach { snapshot.appendItems($0.topics, toSection: $0) }
         dataSource?.apply(snapshot, animatingDifferences: false)

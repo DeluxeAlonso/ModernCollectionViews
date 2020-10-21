@@ -8,8 +8,8 @@
 import UIKit
 
 protocol MainViewModelProtocol {
-    func topics(for section: Section) -> [Topic]
-    func topic(for index: Int, at section: Section) -> Topic
+    func topics(for section: MainViewSection) -> [Topic]
+    func topic(for index: Int, at section: MainViewSection) -> Topic
 }
 
 protocol MainCoordinatorProtocol: class {
@@ -18,7 +18,7 @@ protocol MainCoordinatorProtocol: class {
 
 protocol MainViewFactoryProtocol {
     
-    var sections: [Section] { get }
+    var sections: [MainViewSection] { get }
     
     func topic(for index: Int, at section: Int) -> Topic? 
     

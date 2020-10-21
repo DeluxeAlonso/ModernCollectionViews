@@ -9,7 +9,7 @@ import Foundation
 
 struct MainViewFactory: MainViewFactoryProtocol {
     
-    var sections: [Section] {
+    var sections: [MainViewSection] {
         return [.iOS13, .iOS14]
     }
     
