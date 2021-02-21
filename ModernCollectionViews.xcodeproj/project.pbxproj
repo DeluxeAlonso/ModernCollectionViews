@@ -20,6 +20,7 @@
 		E2696B2F253422B500A13F9D /* DiffableDataSourceTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696B2E253422B500A13F9D /* DiffableDataSourceTopicViewModel.swift */; };
 		E272304825300AAC004D876A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272304725300AAC004D876A /* Coordinator.swift */; };
 		E272304D253010B9004D876A /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272304C253010B9004D876A /* MainCoordinator.swift */; };
+		E2796CCB25E31A95006AAF24 /* Appearance+Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2796CCA25E31A95006AAF24 /* Appearance+Title.swift */; };
 		E2B5F9CC252D7BE60018293C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5F9CB252D7BE60018293C /* AppDelegate.swift */; };
 		E2B5F9CE252D7BE60018293C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5F9CD252D7BE60018293C /* SceneDelegate.swift */; };
 		E2B5F9D5252D7BE90018293C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2B5F9D4252D7BE90018293C /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		E2696B2E253422B500A13F9D /* DiffableDataSourceTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceTopicViewModel.swift; sourceTree = "<group>"; };
 		E272304725300AAC004D876A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E272304C253010B9004D876A /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		E2796CCA25E31A95006AAF24 /* Appearance+Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appearance+Title.swift"; sourceTree = "<group>"; };
 		E2B5F9C8252D7BE60018293C /* ModernCollectionViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModernCollectionViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B5F9CB252D7BE60018293C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2B5F9CD252D7BE60018293C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,14 @@
 				E25B40D725E22DFD0030ABD9 /* CellRegistrationTopicContentConfiguration.swift */,
 			);
 			path = CellRegistration;
+			sourceTree = "<group>";
+		};
+		E2796CC925E31A84006AAF24 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E2796CCA25E31A95006AAF24 /* Appearance+Title.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E2B5F9BF252D7BE60018293C = {
@@ -255,6 +265,7 @@
 		E2B5FA25252D7C7F0018293C /* Lists */ = {
 			isa = PBXGroup;
 			children = (
+				E2796CC925E31A84006AAF24 /* Extensions */,
 				E2B5FA26252D7C7F0018293C /* ListsTopicViewController.swift */,
 				E2391EE12532D408004E49AB /* ListTopicCoordinator.swift */,
 				E25B40C925E2293C0030ABD9 /* ListsTopicContentAppearance.swift */,
@@ -435,6 +446,7 @@
 				E2B5FA2C252D7C7F0018293C /* ListsTopicViewController.swift in Sources */,
 				E2B5FA1A252D7C720018293C /* SectionHeaderView.swift in Sources */,
 				E2B5FA37252D7C930018293C /* Dequeuable.swift in Sources */,
+				E2796CCB25E31A95006AAF24 /* Appearance+Title.swift in Sources */,
 				E21710412537F08000C1CFD8 /* MainProtocols.swift in Sources */,
 				E2B5FA13252D7C5B0018293C /* MainViewController.swift in Sources */,
 				E25B40D025E22DAC0030ABD9 /* CellRegistrationTopicViewController.swift in Sources */,
