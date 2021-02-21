@@ -1,75 +1,62 @@
 //
-//  ListsTopicViewController.swift
+//  CellRegistrationTopicViewController.swift
 //  ModernCollectionViews
 //
-//  Created by Alonso on 10/5/20.
+//  Created by Alonso on 2/21/21.
 //
 
 import UIKit
 
-final class ListsTopicViewController: UICollectionViewController {
+class CellRegistrationTopicViewController: UICollectionViewController {
 
-    typealias Appearance = UICollectionLayoutListConfiguration.Appearance
-    
+    enum Section {
+        case main
+        case secondary
+    }
+
     private var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
 
     private var mainItems: [Int] = Array(0..<5)
     private var secondaryItems: [Int] = Array(5..<15)
 
-    private var currentAppearanceIndex = 0 {
-        didSet {
-            if currentAppearanceIndex > appearances.count - 1 {
-                currentAppearanceIndex = 0
-            }
-        }
-    }
-
-    private var appearances: [Appearance] = [.plain, .grouped, .insetGrouped]
-
-    private var currentAppearance: Appearance {
-        appearances[currentAppearanceIndex]
-    }
-    
-    weak var coordinator: ListTopicCoordinatorProtocol?
-    
     // MARK: - Initializers
-    
+
     init() {
         super.init(collectionViewLayout: UICollectionViewLayout())
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupNavigationBar()
         setupCollectionView()
     }
-    
+
     // MARK: - Private
-    
+
     private func setupNavigationBar() {
-        title = "Lists"
+        title = "Cell registration"
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .play, target: self,
+            barButtonSystemItem: .action, target: self,
             action: #selector(contentConfigurationUpdate))
     }
-    
+
     private func setupCollectionView() {
-        collectionView.collectionViewLayout = makeCollectionViewLayout(using: currentAppearance)
-        
+        collectionView.collectionViewLayout = makeCollectionViewLayout()
+
         configureDataSource(with: .valueCell())
         updateUI()
     }
-    
-    private func makeCollectionViewLayout(using appearance: UICollectionLayoutListConfiguration.Appearance) -> UICollectionViewLayout {
-        var config = UICollectionLayoutListConfiguration(appearance: appearance)
-        
+
+    private func makeCollectionViewLayout() -> UICollectionViewLayout {
+        var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+
         config.trailingSwipeActionsConfigurationProvider = { indexPath in
           let actionHandler: UIContextualAction.Handler = { action, view, completion in
             completion(true)
@@ -81,33 +68,33 @@ final class ListsTopicViewController: UICollectionViewController {
 
           return UISwipeActionsConfiguration(actions: [action])
         }
-        
+
         return UICollectionViewCompositionalLayout.list(using: config)
     }
-    
+
     private func configureDataSource(with contentConfiguration: UIListContentConfiguration) {
-        
+
         // Cell Registration
-        
+
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Int> { cell, indexPath, item in
-            
+
             var contentConfiguration = contentConfiguration
             contentConfiguration.text = "Row \(item)"
             contentConfiguration.secondaryText = "Value"
             contentConfiguration.image = UIImage(systemName: "applelogo")
-            
+
             cell.accessories = [
                 .disclosureIndicator(),
                 .delete(displayed: .whenEditing)]
-            
+
             cell.contentConfiguration = contentConfiguration
         }
-        
+
         // Diffable Data Source
-        
+
         dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: collectionView) {
             (collectionView, indexPath, identifier) -> UICollectionViewCell? in
-            
+
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
         }
 
@@ -127,7 +114,7 @@ final class ListsTopicViewController: UICollectionViewController {
             }
         }
     }
-    
+
     private func updateUI(animated: Bool = false) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Int>()
         snapshot.appendSections([.main, .secondary])
@@ -139,19 +126,19 @@ final class ListsTopicViewController: UICollectionViewController {
     // MARK: - Selectors
 
     @objc func contentConfigurationUpdate() {
-        currentAppearanceIndex += 1
+        let alertController = UIAlertController(title: nil,
+                                                message: "Choose a content configuration mode",
+                                                preferredStyle: .actionSheet)
 
-        let layout = self.makeCollectionViewLayout(using: currentAppearance)
-        self.collectionView.setCollectionViewLayout(layout,animated: true)
-    }
+        CellRegistrationTopicContentConfiguration.allCases.forEach { content in
+            let action = UIAlertAction(title: content.title, style: .default) { _ in
+                self.configureDataSource(with: content.configuration)
+                self.updateUI()
+            }
+            alertController.addAction(action)
+        }
 
-}
-
-extension ListsTopicViewController {
-
-    enum Section {
-        case main
-        case secondary
+        present(alertController, animated: true, completion: nil)
     }
 
 }
