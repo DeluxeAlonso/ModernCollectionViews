@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CompositionalLayoutTopicViewFactoryProtocol {
-    func makeCollectionViewLayout() -> UICollectionViewLayout
+    func makeCollectionViewLayouts() -> [UICollectionViewLayout]
 }
 
 protocol CompositionalLayoutTopicCoordinatorProtocol: class {}
