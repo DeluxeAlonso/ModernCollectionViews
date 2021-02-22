@@ -9,13 +9,21 @@ import UIKit
 
 final class CompositionalLayoutTopicViewController: UICollectionViewController {
     
-    enum Section {
-        case main
-    }
-    
     private let factory: CompositionalLayoutTopicViewFactoryProtocol
     
     weak var coordinator: CompositionalLayoutTopicCoordinatorProtocol?
+
+    private var layouts: [UICollectionViewLayout] {
+        return factory.makeCollectionViewLayouts()
+    }
+
+    private var currentLayoutIndex = 0 {
+        didSet {
+            if currentLayoutIndex > layouts.count - 1 {
+                currentLayoutIndex = 0
+            }
+        }
+    }
     
     // MARK: - Initializers
     
@@ -32,8 +40,12 @@ final class CompositionalLayoutTopicViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "UICollectionViewCompositionalLayout"
+        title = "Compositional layout"
         collectionView.backgroundColor = .systemBackground
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .fastForward, target: self,
+            action: #selector(updateLayout))
         
         configureCollectionView()
     }
@@ -43,7 +55,15 @@ final class CompositionalLayoutTopicViewController: UICollectionViewController {
     private func configureCollectionView() {
         collectionView.dataSource = self
         collectionView.register(cellType: NumberedCollectionViewCell.self)
-        collectionView.collectionViewLayout = factory.makeCollectionViewLayout()
+        collectionView.collectionViewLayout = layouts[0]
+    }
+
+    // MARK: - Selectors
+
+    @objc private func updateLayout() {
+        currentLayoutIndex += 1
+        let layout = layouts[currentLayoutIndex]
+        collectionView.setCollectionViewLayout(layout, animated: true)
     }
     
     // MARK: - UICollectionViewDataSource
@@ -65,6 +85,16 @@ final class CompositionalLayoutTopicViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         return collectionView.dequeueReusableView(with: UICollectionReusableView.self, kind: kind, for: indexPath)
+    }
+
+}
+
+// MARK: - Sections
+
+extension CompositionalLayoutTopicViewController {
+
+    enum Section {
+        case main
     }
 
 }
