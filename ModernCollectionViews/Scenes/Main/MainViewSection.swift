@@ -25,7 +25,7 @@ enum MainViewSection {
         case .iOS13:
             return [.compositionalLayouts, .diffableDataSources]
         case .iOS14:
-            return [.collectionViewLists, .cellRegistration, .otherCapabilities]
+            return [.collectionViewLists, .cellRegistration, .multipleLayouts, .otherCapabilities]
         }
     }
 }
@@ -36,6 +36,7 @@ enum Topic {
     case diffableDataSources
     case collectionViewLists
     case cellRegistration
+    case multipleLayouts
     case otherCapabilities
     
     var title: String? {
@@ -48,6 +49,8 @@ enum Topic {
             return "Lists with collection views"
         case .cellRegistration:
             return "Cell registration"
+        case .multipleLayouts:
+            return "Multiple layouts"
         case .otherCapabilities:
             return "Other capabilities"
         }
@@ -61,7 +64,7 @@ enum Topic {
             return "Collection view update's management"
         case .collectionViewLists:
             return "List cell, Content config and Layout list config"
-        case .cellRegistration:
+        case .cellRegistration, .multipleLayouts:
             return nil
         case .otherCapabilities:
             return "Drag and drop and section snapshot"

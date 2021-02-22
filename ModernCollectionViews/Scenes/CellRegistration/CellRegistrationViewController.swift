@@ -18,9 +18,6 @@ class CellRegistrationViewController: UICollectionViewController {
 
     private var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
 
-    private var mainItems: [Int] = Array(0..<5)
-    private var secondaryItems: [Int] = Array(5..<15)
-
     weak var coordinator: CellRegistrationCoordinatorProtocol?
 
     // MARK: - Initializers
@@ -102,28 +99,13 @@ class CellRegistrationViewController: UICollectionViewController {
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
         }
 
-        // Reordering
-
-        dataSource.reorderingHandlers.canReorderItem = { _ in return true }
-        dataSource.reorderingHandlers.didReorder = { [weak self] transaction in
-            guard let self = self else { return }
-            for sectionTransaction in transaction.sectionTransactions {
-                let sectionIdentifier = sectionTransaction.sectionIdentifier
-                switch sectionIdentifier {
-                case .main:
-                    self.mainItems = sectionTransaction.finalSnapshot.items
-                case .secondary:
-                    self.secondaryItems = sectionTransaction.finalSnapshot.items
-                }
-            }
-        }
     }
 
     private func updateUI(animated: Bool = false) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Int>()
         snapshot.appendSections([.main, .secondary])
-        snapshot.appendItems(mainItems, toSection: .main)
-        snapshot.appendItems(secondaryItems, toSection: .secondary)
+        snapshot.appendItems(Section.main.items, toSection: .main)
+        snapshot.appendItems(Section.secondary.items, toSection: .secondary)
         dataSource?.apply(snapshot, animatingDifferences: animated)
     }
 
@@ -150,6 +132,15 @@ extension CellRegistrationViewController {
     enum Section {
         case main
         case secondary
+
+        var items: [Int] {
+            switch self {
+            case .main:
+                return Array(0..<5)
+            case .secondary:
+                return Array(5..<15)
+            }
+        }
     }
 
 }

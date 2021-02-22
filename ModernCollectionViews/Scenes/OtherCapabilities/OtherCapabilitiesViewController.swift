@@ -14,7 +14,7 @@ class OtherCapabilitiesViewController: UICollectionViewController {
     private var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
 
     private var mainItems: [Item] = Array(0..<5).map { .rowItem(model: RowModel(value: $0)) }
-    private var secondaryItems: [Item] = Array(0..<5).map { .rowItem(model: RowModel(value: $0)) }
+    private var secondaryItems: [Item] = Array(5..<10).map { .rowItem(model: RowModel(value: $0)) }
 
     weak var coordinator: OtherCapabilitiesCoordinatorProtocol?
 
