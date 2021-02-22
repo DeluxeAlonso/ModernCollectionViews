@@ -7,36 +7,6 @@
 
 import UIKit
 
-struct RowModel: Hashable {
-
-    let identifier = UUID()
-    let value: Int
-
-}
-
-struct SectionModel: Hashable {
-
-    let identifier = UUID()
-    let value: Int
-
-}
-
-enum Item: Hashable {
-
-    case sectionItem(model: SectionModel)
-    case rowItem(model: RowModel)
-
-    var value: Int {
-        switch self {
-        case .sectionItem(let model):
-            return model.value
-        case .rowItem(let model):
-            return model.value
-        }
-    }
-
-}
-
 class OtherCapabilitiesViewController: UICollectionViewController {
 
     // MARK: - Properties
@@ -72,6 +42,7 @@ class OtherCapabilitiesViewController: UICollectionViewController {
 
     private func setupNavigationBar() {
         title = "Other capabilities"
+        navigationItem.rightBarButtonItem = editButtonItem
     }
 
     private func setupCollectionView() {
@@ -123,7 +94,8 @@ class OtherCapabilitiesViewController: UICollectionViewController {
             contentConfiguration.image = UIImage(systemName: "applelogo")
 
             cell.accessories = [
-                .reorder(displayed: .always, options: .init( showsVerticalSeparator: true))
+                .disclosureIndicator(displayed: .whenNotEditing),
+                .reorder(displayed: .whenEditing, options: .init( showsVerticalSeparator: true))
             ]
 
             cell.contentConfiguration = contentConfiguration
@@ -147,7 +119,10 @@ class OtherCapabilitiesViewController: UICollectionViewController {
 
         // Reordering
 
-        dataSource.reorderingHandlers.canReorderItem = { _ in return true }
+        dataSource.reorderingHandlers.canReorderItem = { [weak self] _ in
+            guard let self = self else { return false }
+            return self.collectionView.isEditing
+        }
         dataSource.reorderingHandlers.didReorder = { [weak self] transaction in
             guard let self = self else { return }
             for sectionTransaction in transaction.sectionTransactions {

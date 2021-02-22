@@ -15,6 +15,7 @@
 		E25B40CA25E2293C0030ABD9 /* ListsTopicContentAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B40C925E2293C0030ABD9 /* ListsTopicContentAppearance.swift */; };
 		E25B40D025E22DAC0030ABD9 /* CellRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B40CF25E22DAC0030ABD9 /* CellRegistrationViewController.swift */; };
 		E25B40D825E22DFD0030ABD9 /* CellRegistrationTopicContentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B40D725E22DFD0030ABD9 /* CellRegistrationTopicContentConfiguration.swift */; };
+		E268A4F225E41D43006B3A8F /* OtherCapabilitiesItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268A4F125E41D43006B3A8F /* OtherCapabilitiesItemModel.swift */; };
 		E2696B252533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696B242533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift */; };
 		E2696B2A253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696B29253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift */; };
 		E2696B2F253422B500A13F9D /* DiffableDataSourceTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696B2E253422B500A13F9D /* DiffableDataSourceTopicViewModel.swift */; };
@@ -71,6 +72,7 @@
 		E25B40C925E2293C0030ABD9 /* ListsTopicContentAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsTopicContentAppearance.swift; sourceTree = "<group>"; };
 		E25B40CF25E22DAC0030ABD9 /* CellRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRegistrationViewController.swift; sourceTree = "<group>"; };
 		E25B40D725E22DFD0030ABD9 /* CellRegistrationTopicContentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRegistrationTopicContentConfiguration.swift; sourceTree = "<group>"; };
+		E268A4F125E41D43006B3A8F /* OtherCapabilitiesItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherCapabilitiesItemModel.swift; sourceTree = "<group>"; };
 		E2696B242533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutTopicCoordinator.swift; sourceTree = "<group>"; };
 		E2696B29253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceTopicCoordinator.swift; sourceTree = "<group>"; };
 		E2696B2E253422B500A13F9D /* DiffableDataSourceTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceTopicViewModel.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				E2796CD825E33943006AAF24 /* OtherCapabilitiesViewController.swift */,
 				E2796CE025E33950006AAF24 /* OtherCapabilitiesCoordinator.swift */,
+				E268A4F125E41D43006B3A8F /* OtherCapabilitiesItemModel.swift */,
 			);
 			path = OtherCapabilities;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				E2B5FA37252D7C930018293C /* Dequeuable.swift in Sources */,
 				E2796CCB25E31A95006AAF24 /* Appearance+Title.swift in Sources */,
 				E21710412537F08000C1CFD8 /* MainProtocols.swift in Sources */,
+				E268A4F225E41D43006B3A8F /* OtherCapabilitiesItemModel.swift in Sources */,
 				E2B5FA13252D7C5B0018293C /* MainViewController.swift in Sources */,
 				E25B40D025E22DAC0030ABD9 /* CellRegistrationViewController.swift in Sources */,
 				E272304D253010B9004D876A /* MainCoordinator.swift in Sources */,
