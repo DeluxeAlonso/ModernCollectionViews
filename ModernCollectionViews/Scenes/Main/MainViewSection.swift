@@ -64,7 +64,7 @@ enum Topic {
         case .cellRegistration:
             return nil
         case .otherCapabilities:
-            return "Drag and drop, badge support, etc"
+            return "Drag and drop, section snapshot, badge support, etc"
         }
     }
     

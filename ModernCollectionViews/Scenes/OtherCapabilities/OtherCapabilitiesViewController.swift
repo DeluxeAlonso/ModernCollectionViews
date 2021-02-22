@@ -7,13 +7,32 @@
 
 import UIKit
 
-struct Item: Hashable {
+struct RowModel: Hashable {
 
     let identifier = UUID()
     let value: Int
 
-    init(value: Int) {
-        self.value = value
+}
+
+struct SectionModel: Hashable {
+
+    let identifier = UUID()
+    let value: Int
+
+}
+
+enum Item: Hashable {
+
+    case sectionItem(model: SectionModel)
+    case rowItem(model: RowModel)
+
+    var value: Int {
+        switch self {
+        case .sectionItem(let model):
+            return model.value
+        case .rowItem(let model):
+            return model.value
+        }
     }
 
 }
@@ -24,8 +43,8 @@ class OtherCapabilitiesViewController: UICollectionViewController {
 
     private var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
 
-    private var mainItems: [Item] = Array(0..<5).map { Item(value: $0) }
-    private var secondaryItems: [Item] = Array(0..<5).map { Item(value: $0) }
+    private var mainItems: [Item] = Array(0..<5).map { .rowItem(model: RowModel(value: $0)) }
+    private var secondaryItems: [Item] = Array(0..<5).map { .rowItem(model: RowModel(value: $0)) }
 
     weak var coordinator: OtherCapabilitiesCoordinatorProtocol?
 
@@ -114,11 +133,12 @@ class OtherCapabilitiesViewController: UICollectionViewController {
 
         dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView) {
             (collectionView, indexPath, item) -> UICollectionViewCell? in
-            if indexPath.item == 0 {
+            switch item {
+            case .sectionItem:
                 return collectionView.dequeueConfiguredReusableCell(using: headerRegistration,
                                                                     for: indexPath,
                                                                     item: item)
-            } else {
+            case .rowItem:
                 return collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
                                                                     for: indexPath,
                                                                     item: item)
@@ -151,18 +171,17 @@ class OtherCapabilitiesViewController: UICollectionViewController {
 
         for section in sections {
             var sectionSnapshot = NSDiffableDataSourceSectionSnapshot<Item>()
-            let headerItem = Item(value: section.rawValue)
+            let headerItem: Item = .sectionItem(model: .init(value: section.rawValue))
             sectionSnapshot.append([headerItem])
-            let items = Array(0..<5).map { Item(value: $0) }
-            sectionSnapshot.append(items, to: headerItem)
+
+            switch section {
+            case .main: sectionSnapshot.append(mainItems, to: headerItem)
+            case .secondary: sectionSnapshot.append(secondaryItems, to: headerItem)
+            }
+            
             sectionSnapshot.expand([headerItem])
             dataSource.apply(sectionSnapshot, to: section)
         }
-        //        var snapshot = NSDiffableDataSourceSnapshot<Section, Int>()
-        //        snapshot.appendSections([.main, .secondary])
-        //        snapshot.appendItems(mainItems, toSection: .main)
-        //        snapshot.appendItems(secondaryItems, toSection: .secondary)
-        //        dataSource?.apply(snapshot, animatingDifferences: animated)
     }
 
 }
