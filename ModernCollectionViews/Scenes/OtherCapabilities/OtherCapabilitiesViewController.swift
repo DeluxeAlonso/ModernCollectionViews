@@ -14,7 +14,8 @@ class OtherCapabilitiesViewController: UICollectionViewController {
     private var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
 
     private var mainItems: [Item] = Array(0..<5).map { .rowItem(model: RowModel(value: $0)) }
-    private var secondaryItems: [Item] = Array(5..<10).map { .rowItem(model: RowModel(value: $0)) }
+    private var secondaryItems: [Item] = Array(0..<5).map { .rowItem(model: RowModel(value: $0)) }
+    private var tertiaryItems: [Item] = Array(0..<5).map { .rowItem(model: RowModel(value: $0)) }
 
     weak var coordinator: OtherCapabilitiesCoordinatorProtocol?
 
@@ -132,6 +133,8 @@ class OtherCapabilitiesViewController: UICollectionViewController {
                     self.mainItems = sectionTransaction.finalSnapshot.items
                 case .secondary:
                     self.secondaryItems = sectionTransaction.finalSnapshot.items
+                case .tertiary:
+                    self.tertiaryItems = sectionTransaction.finalSnapshot.items
                 }
             }
         }
@@ -152,6 +155,7 @@ class OtherCapabilitiesViewController: UICollectionViewController {
             switch section {
             case .main: sectionSnapshot.append(mainItems, to: headerItem)
             case .secondary: sectionSnapshot.append(secondaryItems, to: headerItem)
+            case .tertiary: sectionSnapshot.append(tertiaryItems, to: headerItem)
             }
             
             sectionSnapshot.expand([headerItem])
@@ -168,6 +172,7 @@ extension OtherCapabilitiesViewController {
     enum Section: Int, CaseIterable {
         case main
         case secondary
+        case tertiary
     }
 
 }
