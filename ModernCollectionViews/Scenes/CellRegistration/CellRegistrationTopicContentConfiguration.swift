@@ -1,5 +1,5 @@
 //
-//  CellRegistrationTopicContentConfiguration.swift
+//  CellRegistrationContentConfiguration.swift
 //  ModernCollectionViews
 //
 //  Created by Alonso on 2/21/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum CellRegistrationTopicContentConfiguration: CaseIterable {
+enum CellRegistrationContentConfiguration: CaseIterable {
 
     case subtitle, value
 

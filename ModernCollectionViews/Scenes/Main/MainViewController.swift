@@ -54,7 +54,7 @@ final class MainViewController: UICollectionViewController {
     
     private func configureCollectionViewDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Topic> { cell, indexPath, item in
-            var content = UIListContentConfiguration.accompaniedSidebarSubtitleCell()
+            var content = UIListContentConfiguration.sidebarCell()
             
             content.text = item.title
             content.secondaryText = item.subtitle

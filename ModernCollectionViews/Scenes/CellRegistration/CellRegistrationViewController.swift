@@ -1,5 +1,5 @@
 //
-//  CellRegistrationTopicViewController.swift
+//  CellRegistrationViewController.swift
 //  ModernCollectionViews
 //
 //  Created by Alonso on 2/21/21.
@@ -21,7 +21,7 @@ class CellRegistrationViewController: UICollectionViewController {
     private var mainItems: [Int] = Array(0..<5)
     private var secondaryItems: [Int] = Array(5..<15)
 
-    weak var coordinator: CellRegistrationTopicCoordinatorProtocol?
+    weak var coordinator: CellRegistrationCoordinatorProtocol?
 
     // MARK: - Initializers
 
@@ -129,7 +129,7 @@ class CellRegistrationViewController: UICollectionViewController {
 
     private func createContentConfigurationMenu() -> UIMenu {
         var actions: [UIAction] = []
-        CellRegistrationTopicContentConfiguration.allCases.forEach { content in
+        CellRegistrationContentConfiguration.allCases.forEach { content in
             let action = UIAction(title: content.title,
                                   image: UIImage(systemName: "paperplane")) { [weak self] _ in
                 guard let self = self else { return }
