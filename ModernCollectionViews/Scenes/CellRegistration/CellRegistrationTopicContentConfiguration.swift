@@ -11,7 +11,7 @@ enum CellRegistrationTopicContentConfiguration: CaseIterable {
 
     case subtitle, value
 
-    var title: String? {
+    var title: String {
         switch self {
         case .subtitle:
             return "Subtitle cell"

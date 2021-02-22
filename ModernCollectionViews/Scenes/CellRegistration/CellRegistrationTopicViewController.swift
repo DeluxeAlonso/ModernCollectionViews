@@ -9,15 +9,19 @@ import UIKit
 
 class CellRegistrationTopicViewController: UICollectionViewController {
 
-    enum Section {
-        case main
-        case secondary
-    }
+    lazy var configBarButtonItem: UIBarButtonItem = {
+        let menu = createContentConfigurationMenu()
+        return UIBarButtonItem(image: UIImage(systemName: "gear"), menu: menu)
+    }()
+
+    // MARK: - Properties
 
     private var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
 
     private var mainItems: [Int] = Array(0..<5)
     private var secondaryItems: [Int] = Array(5..<15)
+
+    weak var coordinator: CellRegistrationTopicCoordinatorProtocol?
 
     // MARK: - Initializers
 
@@ -33,6 +37,7 @@ class CellRegistrationTopicViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.backgroundColor = .systemBackground
 
         setupNavigationBar()
         setupCollectionView()
@@ -42,9 +47,7 @@ class CellRegistrationTopicViewController: UICollectionViewController {
 
     private func setupNavigationBar() {
         title = "Cell registration"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .action, target: self,
-            action: #selector(contentConfigurationUpdate))
+        navigationItem.rightBarButtonItems = [configBarButtonItem, editButtonItem]
     }
 
     private func setupCollectionView() {
@@ -85,6 +88,7 @@ class CellRegistrationTopicViewController: UICollectionViewController {
 
             cell.accessories = [
                 .disclosureIndicator(),
+                .insert(displayed: .whenEditing),
                 .delete(displayed: .whenEditing)]
 
             cell.contentConfiguration = contentConfiguration
@@ -123,22 +127,29 @@ class CellRegistrationTopicViewController: UICollectionViewController {
         dataSource?.apply(snapshot, animatingDifferences: animated)
     }
 
-    // MARK: - Selectors
-
-    @objc func contentConfigurationUpdate() {
-        let alertController = UIAlertController(title: nil,
-                                                message: "Choose a content configuration mode",
-                                                preferredStyle: .actionSheet)
-
+    private func createContentConfigurationMenu() -> UIMenu {
+        var actions: [UIAction] = []
         CellRegistrationTopicContentConfiguration.allCases.forEach { content in
-            let action = UIAlertAction(title: content.title, style: .default) { _ in
+            let action = UIAction(title: content.title,
+                                  image: UIImage(systemName: "paperplane")) { [weak self] _ in
+                guard let self = self else { return }
                 self.configureDataSource(with: content.configuration)
                 self.updateUI()
             }
-            alertController.addAction(action)
+            actions.append(action)
         }
+        return UIMenu(title: "Content configuration", children: actions)
+    }
 
-        present(alertController, animated: true, completion: nil)
+}
+
+// MARK: - Sections
+
+extension CellRegistrationTopicViewController {
+
+    enum Section {
+        case main
+        case secondary
     }
 
 }

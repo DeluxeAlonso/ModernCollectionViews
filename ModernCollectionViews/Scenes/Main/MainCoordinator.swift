@@ -37,6 +37,8 @@ final class MainCoordinator: NSObject, Coordinator, MainCoordinatorProtocol {
             coordinator = CompositionalLayoutTopicCoordinator(navigationController: navigationController)
         case .diffableDataSources:
             coordinator = DiffableDataSourceTopicCoordinator(navigationController: navigationController)
+        case .cellRegistration:
+            coordinator = CellRegistrationTopicCoordinator(navigationController: navigationController)
         }
         
         coordinator.parentCoordinator = unwrappedParentCoordinator
