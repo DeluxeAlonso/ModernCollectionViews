@@ -1,5 +1,5 @@
 //
-//  CellRegistrationTopicCoordinator.swift
+//  CellRegistrationCoordinator.swift
 //  ModernCollectionViews
 //
 //  Created by Alonso on 2/21/21.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol CellRegistrationTopicCoordinatorProtocol: class {
+protocol CellRegistrationCoordinatorProtocol: class {
 
 }
 
-final class CellRegistrationTopicCoordinator: Coordinator, CellRegistrationTopicCoordinatorProtocol {
+final class CellRegistrationCoordinator: Coordinator, CellRegistrationCoordinatorProtocol {
 
     var childCoordinators: [Coordinator] = []
     var parentCoordinator: Coordinator?
@@ -22,7 +22,7 @@ final class CellRegistrationTopicCoordinator: Coordinator, CellRegistrationTopic
     }
 
     func start() {
-        let viewController = CellRegistrationTopicViewController()
+        let viewController = CellRegistrationViewController()
 
         viewController.coordinator = self
 

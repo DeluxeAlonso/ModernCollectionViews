@@ -38,7 +38,9 @@ final class MainCoordinator: NSObject, Coordinator, MainCoordinatorProtocol {
         case .diffableDataSources:
             coordinator = DiffableDataSourceTopicCoordinator(navigationController: navigationController)
         case .cellRegistration:
-            coordinator = CellRegistrationTopicCoordinator(navigationController: navigationController)
+            coordinator = CellRegistrationCoordinator(navigationController: navigationController)
+        case .otherCapabilities:
+            coordinator = OtherCapabilitiesCoordinator(navigationController: navigationController)
         }
         
         coordinator.parentCoordinator = unwrappedParentCoordinator

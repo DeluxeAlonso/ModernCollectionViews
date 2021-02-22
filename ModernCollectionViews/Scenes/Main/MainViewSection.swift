@@ -5,7 +5,7 @@
 //  Created by Alonso on 10/4/20.
 //
 
-import Foundation
+import UIKit
 
 enum MainViewSection {
     case iOS13
@@ -25,7 +25,7 @@ enum MainViewSection {
         case .iOS13:
             return [.compositionalLayouts, .diffableDataSources]
         case .iOS14:
-            return [.collectionViewLists, .cellRegistration]
+            return [.collectionViewLists, .cellRegistration, .otherCapabilities]
         }
     }
 }
@@ -36,6 +36,7 @@ enum Topic {
     case diffableDataSources
     case collectionViewLists
     case cellRegistration
+    case otherCapabilities
     
     var title: String? {
         switch self {
@@ -47,6 +48,8 @@ enum Topic {
             return "Lists with collection views"
         case .cellRegistration:
             return "Cell registration"
+        case .otherCapabilities:
+            return "Other capabilities"
         }
     }
     
@@ -60,6 +63,8 @@ enum Topic {
             return "List cell, Content config and Layout list config"
         case .cellRegistration:
             return nil
+        case .otherCapabilities:
+            return "Drag and drop, badge support, etc"
         }
     }
     
