@@ -8,16 +8,22 @@
 import UIKit
 
 final class ListsTopicViewController: UICollectionViewController {
-    
-    enum Section {
-        case main
-        case secondary
-    }
-    
-    private var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
 
-    private var mainItems: [Int] = Array(0..<5)
-    private var secondaryItems: [Int] = Array(5..<15)
+    typealias Appearance = UICollectionLayoutListConfiguration.Appearance
+
+    private var appearances: [Appearance] = [.grouped, .insetGrouped, .plain]
+
+    private var currentAppearanceIndex = 0 {
+        didSet {
+            if currentAppearanceIndex > appearances.count - 1 {
+                currentAppearanceIndex = 0
+            }
+        }
+    }
+
+    private var currentAppearance: Appearance {
+        appearances[currentAppearanceIndex]
+    }
     
     weak var coordinator: ListTopicCoordinatorProtocol?
     
@@ -35,6 +41,7 @@ final class ListsTopicViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.backgroundColor = .systemBackground
         
         setupNavigationBar()
         setupCollectionView()
@@ -43,82 +50,88 @@ final class ListsTopicViewController: UICollectionViewController {
     // MARK: - Private
     
     private func setupNavigationBar() {
-        title = "Lists with collection views"
-        navigationItem.rightBarButtonItem = editButtonItem
+        title = "Lists"
+        navigationItem.prompt = currentAppearance.title
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .fastForward, target: self,
+            action: #selector(updateContentAppearance))
     }
     
     private func setupCollectionView() {
-        collectionView.collectionViewLayout = makeCollectionViewLayout()
-        
-        configureCollectionViewDataSource()
-        updateUI()
+        collectionView.dataSource = self
+        collectionView.register(cellType: UICollectionViewListCell.self)
+
+        collectionView.collectionViewLayout = makeCollectionViewLayout(using: currentAppearance)
     }
     
-    private func makeCollectionViewLayout() -> UICollectionViewLayout {
-        var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+    private func makeCollectionViewLayout(using appearance: UICollectionLayoutListConfiguration.Appearance) -> UICollectionViewLayout {
+        let configuration = UICollectionLayoutListConfiguration(appearance: appearance)
         
-        config.trailingSwipeActionsConfigurationProvider = { indexPath in
-          let actionHandler: UIContextualAction.Handler = { action, view, completion in
-            completion(true)
-          }
-
-          let action = UIContextualAction(style: .normal, title: "Test", handler: actionHandler)
-          action.image = UIImage(systemName: "checkmark")
-          action.backgroundColor = .systemGreen
-
-          return UISwipeActionsConfiguration(actions: [action])
-        }
-        
-        return UICollectionViewCompositionalLayout.list(using: config)
+        return UICollectionViewCompositionalLayout.list(using: configuration)
     }
-    
-    private func configureCollectionViewDataSource() {
-        
-        // Cell Registration
-        
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Int> { cell, indexPath, item in
-            
-            var content = UIListContentConfiguration.valueCell()
-            content.text = "Row \(item)"
-            content.secondaryText = "Value"
-            content.image = UIImage(systemName: "applelogo")
-            
-            cell.accessories = [.disclosureIndicator(), .delete(displayed: .whenEditing)]
-            
-            cell.contentConfiguration = content
-        }
-        
-        // Diffable Data Source
-        
-        dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: collectionView) {
-            (collectionView, indexPath, identifier) -> UICollectionViewCell? in
-            
-            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
-        }
 
-        // Reordering
+    // MARK: - Selectors
 
-        dataSource.reorderingHandlers.canReorderItem = { _ in return true }
-        dataSource.reorderingHandlers.didReorder = { [weak self] transaction in
+    @objc private func updateContentAppearance() {
+        currentAppearanceIndex += 1
+
+        let layout = self.makeCollectionViewLayout(using: currentAppearance)
+        collectionView.setCollectionViewLayout(layout, animated: true) { [weak self] _ in
             guard let self = self else { return }
-            for sectionTransaction in transaction.sectionTransactions {
-                let sectionIdentifier = sectionTransaction.sectionIdentifier
-                switch sectionIdentifier {
-                case .main:
-                    self.mainItems = sectionTransaction.finalSnapshot.items
-                case .secondary:
-                    self.secondaryItems = sectionTransaction.finalSnapshot.items
-                }
+            self.navigationItem.prompt = self.currentAppearance.title
+        }
+    }
+
+}
+
+// MARK: - UICollectionViewDataSource
+
+extension ListsTopicViewController {
+
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return Section.allCases.count
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let section = Section.allCases[section]
+        return section.items.count
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(with: UICollectionViewListCell.self,
+                                                      for: indexPath)
+
+        let section = Section.allCases[indexPath.section]
+        let item = section.items[indexPath.row]
+
+        var contentConfiguration = UIListContentConfiguration.valueCell()
+        contentConfiguration.text = "Row \(item)"
+        contentConfiguration.secondaryText = "Value"
+        contentConfiguration.image = UIImage(systemName: "applelogo")
+
+        cell.contentConfiguration = contentConfiguration
+
+        return cell
+    }
+
+}
+
+// MARK: - Sections
+
+extension ListsTopicViewController {
+
+    enum Section: CaseIterable {
+        case main
+        case secondary
+
+        var items: [Int] {
+            switch self {
+            case .main:
+                return Array(0..<10)
+            case .secondary:
+                return Array(0..<40)
             }
         }
-    }
-    
-    private func updateUI(animated: Bool = false) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Int>()
-        snapshot.appendSections([.main, .secondary])
-        snapshot.appendItems(mainItems, toSection: .main)
-        snapshot.appendItems(secondaryItems, toSection: .secondary)
-        dataSource?.apply(snapshot, animatingDifferences: animated)
     }
 
 }
