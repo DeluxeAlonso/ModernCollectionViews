@@ -129,7 +129,7 @@ extension ListsTopicViewController {
             case .main:
                 return Array(0..<10)
             case .secondary:
-                return Array(0..<40)
+                return Array(11..<40)
             }
         }
     }

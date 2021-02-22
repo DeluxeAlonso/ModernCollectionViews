@@ -16,6 +16,9 @@
 		E25B40D025E22DAC0030ABD9 /* CellRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B40CF25E22DAC0030ABD9 /* CellRegistrationViewController.swift */; };
 		E25B40D825E22DFD0030ABD9 /* CellRegistrationTopicContentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B40D725E22DFD0030ABD9 /* CellRegistrationTopicContentConfiguration.swift */; };
 		E268A4F225E41D43006B3A8F /* OtherCapabilitiesItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268A4F125E41D43006B3A8F /* OtherCapabilitiesItemModel.swift */; };
+		E268A4FB25E42B12006B3A8F /* MultipleLayoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268A4FA25E42B12006B3A8F /* MultipleLayoutsViewController.swift */; };
+		E268A50325E42B1E006B3A8F /* MultipleLayoutsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268A50225E42B1E006B3A8F /* MultipleLayoutsCoordinator.swift */; };
+		E268A57225E44009006B3A8F /* MultipleLayoutsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268A57125E44009006B3A8F /* MultipleLayoutsViewFactory.swift */; };
 		E2696B252533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696B242533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift */; };
 		E2696B2A253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696B29253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift */; };
 		E2696B2F253422B500A13F9D /* DiffableDataSourceTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696B2E253422B500A13F9D /* DiffableDataSourceTopicViewModel.swift */; };
@@ -73,6 +76,9 @@
 		E25B40CF25E22DAC0030ABD9 /* CellRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRegistrationViewController.swift; sourceTree = "<group>"; };
 		E25B40D725E22DFD0030ABD9 /* CellRegistrationTopicContentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRegistrationTopicContentConfiguration.swift; sourceTree = "<group>"; };
 		E268A4F125E41D43006B3A8F /* OtherCapabilitiesItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherCapabilitiesItemModel.swift; sourceTree = "<group>"; };
+		E268A4FA25E42B12006B3A8F /* MultipleLayoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleLayoutsViewController.swift; sourceTree = "<group>"; };
+		E268A50225E42B1E006B3A8F /* MultipleLayoutsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleLayoutsCoordinator.swift; sourceTree = "<group>"; };
+		E268A57125E44009006B3A8F /* MultipleLayoutsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleLayoutsViewFactory.swift; sourceTree = "<group>"; };
 		E2696B242533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutTopicCoordinator.swift; sourceTree = "<group>"; };
 		E2696B29253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceTopicCoordinator.swift; sourceTree = "<group>"; };
 		E2696B2E253422B500A13F9D /* DiffableDataSourceTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceTopicViewModel.swift; sourceTree = "<group>"; };
@@ -142,6 +148,16 @@
 				E25B40D725E22DFD0030ABD9 /* CellRegistrationTopicContentConfiguration.swift */,
 			);
 			path = CellRegistration;
+			sourceTree = "<group>";
+		};
+		E268A4F925E42AF2006B3A8F /* MultipleLayouts */ = {
+			isa = PBXGroup;
+			children = (
+				E268A4FA25E42B12006B3A8F /* MultipleLayoutsViewController.swift */,
+				E268A50225E42B1E006B3A8F /* MultipleLayoutsCoordinator.swift */,
+				E268A57125E44009006B3A8F /* MultipleLayoutsViewFactory.swift */,
+			);
+			path = MultipleLayouts;
 			sourceTree = "<group>";
 		};
 		E2796CC925E31A84006AAF24 /* Extensions */ = {
@@ -232,6 +248,7 @@
 				E2B5FA1E252D7C7F0018293C /* DiffableDataSource */,
 				E2B5FA25252D7C7F0018293C /* Lists */,
 				E25B40CE25E22D910030ABD9 /* CellRegistration */,
+				E268A4F925E42AF2006B3A8F /* MultipleLayouts */,
 				E2796CD725E33875006AAF24 /* OtherCapabilities */,
 			);
 			path = Scenes;
@@ -458,7 +475,9 @@
 				E2B5FA27252D7C7F0018293C /* DiffableDataSourceTopicViewController.swift in Sources */,
 				E25B40D825E22DFD0030ABD9 /* CellRegistrationTopicContentConfiguration.swift in Sources */,
 				E2B5FA38252D7C930018293C /* UICollectionView+Dequeuing.swift in Sources */,
+				E268A4FB25E42B12006B3A8F /* MultipleLayoutsViewController.swift in Sources */,
 				E2796CD925E33943006AAF24 /* OtherCapabilitiesViewController.swift in Sources */,
+				E268A57225E44009006B3A8F /* MultipleLayoutsViewFactory.swift in Sources */,
 				E2796CD025E31C54006AAF24 /* CellRegistrationCoordinator.swift in Sources */,
 				E25B40CA25E2293C0030ABD9 /* ListsTopicContentAppearance.swift in Sources */,
 				E2B5FA29252D7C7F0018293C /* DiffableDataSourceTopicViewFactory.swift in Sources */,
@@ -478,6 +497,7 @@
 				E2696B2F253422B500A13F9D /* DiffableDataSourceTopicViewModel.swift in Sources */,
 				E2B5FA2A252D7C7F0018293C /* CompositionalLayoutTopicViewFactory.swift in Sources */,
 				E21710312537EDB200C1CFD8 /* DiffableDataSourceProtocols.swift in Sources */,
+				E268A50325E42B1E006B3A8F /* MultipleLayoutsCoordinator.swift in Sources */,
 				E2B5FA39252D7C930018293C /* Array+Filtering.swift in Sources */,
 				E2B5FA3A252D7C930018293C /* NumberedCollectionViewCell.swift in Sources */,
 				E2696B252533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift in Sources */,

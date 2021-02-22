@@ -39,6 +39,8 @@ final class MainCoordinator: NSObject, Coordinator, MainCoordinatorProtocol {
             coordinator = DiffableDataSourceTopicCoordinator(navigationController: navigationController)
         case .cellRegistration:
             coordinator = CellRegistrationCoordinator(navigationController: navigationController)
+        case .multipleLayouts:
+            coordinator = MultipleLayoutsCoordinator(navigationController: navigationController)
         case .otherCapabilities:
             coordinator = OtherCapabilitiesCoordinator(navigationController: navigationController)
         }
