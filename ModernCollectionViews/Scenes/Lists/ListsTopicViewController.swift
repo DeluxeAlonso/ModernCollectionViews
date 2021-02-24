@@ -65,7 +65,7 @@ final class ListsTopicViewController: UICollectionViewController {
     }
     
     private func makeCollectionViewLayout(using appearance: UICollectionLayoutListConfiguration.Appearance) -> UICollectionViewLayout {
-        let configuration = UICollectionLayoutListConfiguration(appearance: .grouped)
+        let configuration = UICollectionLayoutListConfiguration(appearance: appearance)
         return UICollectionViewCompositionalLayout.list(using: configuration)
     }
 
