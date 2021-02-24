@@ -13,7 +13,7 @@ final class CompositionalLayoutTopicViewController: UICollectionViewController {
     
     weak var coordinator: CompositionalLayoutTopicCoordinatorProtocol?
 
-    private var layouts: [UICollectionViewLayout] {
+    private var layouts: [LayoutProtocol] {
         return factory.makeCollectionViewLayouts()
     }
 
@@ -55,7 +55,10 @@ final class CompositionalLayoutTopicViewController: UICollectionViewController {
     private func configureCollectionView() {
         collectionView.dataSource = self
         collectionView.register(cellType: NumberedCollectionViewCell.self)
-        collectionView.collectionViewLayout = layouts[0]
+
+        let initialLayout = layouts[0]
+        navigationItem.prompt = initialLayout.title
+        collectionView.collectionViewLayout = initialLayout.makeLayout()
     }
 
     // MARK: - Selectors
@@ -63,7 +66,8 @@ final class CompositionalLayoutTopicViewController: UICollectionViewController {
     @objc private func updateLayout() {
         currentLayoutIndex += 1
         let layout = layouts[currentLayoutIndex]
-        collectionView.setCollectionViewLayout(layout, animated: true)
+        navigationItem.prompt = layout.title
+        collectionView.setCollectionViewLayout(layout.makeLayout(), animated: true)
     }
     
     // MARK: - UICollectionViewDataSource
