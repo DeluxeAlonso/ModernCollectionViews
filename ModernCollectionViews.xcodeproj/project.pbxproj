@@ -26,6 +26,7 @@
 		E26B734525E5B9A7000C28B8 /* DiffableDataSourceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B734425E5B9A7000C28B8 /* DiffableDataSourceCoordinator.swift */; };
 		E26B734A25E5FFCA000C28B8 /* BluetoothSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B734925E5FFCA000C28B8 /* BluetoothSettingsViewController.swift */; };
 		E26B734F25E60003000C28B8 /* BluetoothSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B734E25E60003000C28B8 /* BluetoothSettingsCoordinator.swift */; };
+		E26B735525E60D1C000C28B8 /* BluetoothItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B735425E60D1C000C28B8 /* BluetoothItem.swift */; };
 		E272304825300AAC004D876A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272304725300AAC004D876A /* Coordinator.swift */; };
 		E272304D253010B9004D876A /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272304C253010B9004D876A /* MainCoordinator.swift */; };
 		E2796CCB25E31A95006AAF24 /* Appearance+Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2796CCA25E31A95006AAF24 /* Appearance+Title.swift */; };
@@ -90,6 +91,7 @@
 		E26B734425E5B9A7000C28B8 /* DiffableDataSourceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceCoordinator.swift; sourceTree = "<group>"; };
 		E26B734925E5FFCA000C28B8 /* BluetoothSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothSettingsViewController.swift; sourceTree = "<group>"; };
 		E26B734E25E60003000C28B8 /* BluetoothSettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothSettingsCoordinator.swift; sourceTree = "<group>"; };
+		E26B735425E60D1C000C28B8 /* BluetoothItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothItem.swift; sourceTree = "<group>"; };
 		E272304725300AAC004D876A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E272304C253010B9004D876A /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		E2796CCA25E31A95006AAF24 /* Appearance+Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appearance+Title.swift"; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			children = (
 				E26B734925E5FFCA000C28B8 /* BluetoothSettingsViewController.swift */,
 				E26B734E25E60003000C28B8 /* BluetoothSettingsCoordinator.swift */,
+				E26B735425E60D1C000C28B8 /* BluetoothItem.swift */,
 			);
 			path = BluetoothSettings;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				E2B5FA29252D7C7F0018293C /* OddEvenNumbersViewFactory.swift in Sources */,
 				E272304825300AAC004D876A /* Coordinator.swift in Sources */,
 				E2B5FA28252D7C7F0018293C /* OddEvenNumbersView.swift in Sources */,
+				E26B735525E60D1C000C28B8 /* BluetoothItem.swift in Sources */,
 				E21710392537F02D00C1CFD8 /* CompositionalLayoutProtocols.swift in Sources */,
 				E2391EE22532D408004E49AB /* ListTopicCoordinator.swift in Sources */,
 				E2B5FA2C252D7C7F0018293C /* ListsTopicViewController.swift in Sources */,

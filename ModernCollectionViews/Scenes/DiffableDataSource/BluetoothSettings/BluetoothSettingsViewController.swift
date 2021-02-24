@@ -7,19 +7,6 @@
 
 import UIKit
 
-enum BluetoothItem: Hashable {
-    case enable, available(title: String)
-
-    var title: String {
-        switch self {
-        case .enable:
-            return "Bluetooth"
-        case .available(let title):
-            return title
-        }
-    }
-}
-
 class BluetoothSettingsViewController: UICollectionViewController {
 
     // MARK: - Properties
@@ -44,6 +31,7 @@ class BluetoothSettingsViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.allowsSelection = false
         collectionView.backgroundColor = .systemBackground
 
         setupNavigationBar()
@@ -114,9 +102,7 @@ class BluetoothSettingsViewController: UICollectionViewController {
                     for: indexPath,
                     item: item)
             }
-
         }
-
     }
 
     private func showAvailableConnections() {
