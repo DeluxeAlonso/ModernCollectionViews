@@ -9,28 +9,17 @@ import UIKit
 
 protocol MultipleLayoutsFactoryProtocol {
 
-    func makeCollectionViewLayout() -> UICollectionViewLayout
+    func gridSection() -> NSCollectionLayoutSection
+
+    func groupedListSection(_ env: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection
+    func insetGroupedListSection(_ env: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection
+    func sidebarListSection(_ env: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection
 
 }
 
 struct MultipleLayoutsViewFactory: MultipleLayoutsFactoryProtocol {
 
-    func makeCollectionViewLayout() -> UICollectionViewLayout {
-        return UICollectionViewCompositionalLayout { sectionNumber, env -> NSCollectionLayoutSection? in
-            switch sectionNumber {
-            case .zero:
-                return self.gridSection()
-            case let number where number % 2 == 0:
-                return self.sidebarListSection(env)
-            case let number where number % 2 != 0:
-                return self.insetGroupedListSection(env)
-            default:
-                return nil
-            }
-        }
-    }
-
-    private func gridSection() -> NSCollectionLayoutSection {
+    func gridSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.3),
                                               heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -47,7 +36,7 @@ struct MultipleLayoutsViewFactory: MultipleLayoutsFactoryProtocol {
         return section
     }
 
-    private func insetGroupedListSection(_ env: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+    func insetGroupedListSection(_ env: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
         var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
 
         config.trailingSwipeActionsConfigurationProvider = { indexPath in
@@ -70,7 +59,12 @@ struct MultipleLayoutsViewFactory: MultipleLayoutsFactoryProtocol {
         return NSCollectionLayoutSection.list(using: config, layoutEnvironment: env)
     }
 
-    private func sidebarListSection(_ env: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+    func groupedListSection(_ env: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+        let config = UICollectionLayoutListConfiguration(appearance: .grouped)
+        return NSCollectionLayoutSection.list(using: config, layoutEnvironment: env)
+    }
+
+    func sidebarListSection(_ env: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
         let config = UICollectionLayoutListConfiguration(appearance: .sidebarPlain)
 
         return NSCollectionLayoutSection.list(using: config, layoutEnvironment: env)

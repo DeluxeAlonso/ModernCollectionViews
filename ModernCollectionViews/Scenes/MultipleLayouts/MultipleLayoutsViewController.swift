@@ -16,9 +16,11 @@ struct MultipleItem: Hashable {
 
 class MultipleLayoutsViewController: UICollectionViewController {
 
+    var sections: [SectionItem] = [SectionItem(type: .orthogonal), SectionItem(type: .list), SectionItem(type: .list)]
+
     // MARK: - Properties
 
-    private var dataSource: UICollectionViewDiffableDataSource<Int, MultipleItem>!
+    private var dataSource: UICollectionViewDiffableDataSource<SectionItem, MultipleItem>!
 
     private var factory: MultipleLayoutsFactoryProtocol
     weak var coordinator: MultipleLayoutsCoordinatorProtocol?
@@ -51,10 +53,21 @@ class MultipleLayoutsViewController: UICollectionViewController {
     }
 
     private func setupCollectionView() {
-        collectionView.collectionViewLayout = factory.makeCollectionViewLayout()
+        collectionView.collectionViewLayout = makeCollectionViewLayout()
 
         configureDataSource(with: .valueCell())
         updateUI()
+    }
+
+    private func makeCollectionViewLayout() -> UICollectionViewLayout {
+        return UICollectionViewCompositionalLayout { sectionNumber, env -> NSCollectionLayoutSection? in
+            switch self.sections[sectionNumber].type {
+            case .orthogonal:
+                return self.factory.gridSection()
+            case .list:
+                return self.factory.groupedListSection(env)
+            }
+        }
     }
 
     private func configureDataSource(with contentConfiguration: UIListContentConfiguration) {
@@ -83,15 +96,15 @@ class MultipleLayoutsViewController: UICollectionViewController {
 
         // Diffable Data Source
 
-        dataSource = UICollectionViewDiffableDataSource<Int, MultipleItem>(collectionView: collectionView) {
+        dataSource = UICollectionViewDiffableDataSource<SectionItem, MultipleItem>(collectionView: collectionView) {
             (collectionView, indexPath, identifier) -> UICollectionViewCell? in
-            switch indexPath.section {
-            case .zero:
+            switch self.sections[indexPath.section].type {
+            case .orthogonal:
                 return collectionView.dequeueConfiguredReusableCell(
                     using: numberedCellRegistration,
                     for: indexPath,
                     item: identifier)
-            default:
+            case .list:
                 return collectionView.dequeueConfiguredReusableCell(using: listCellRegistration, for: indexPath, item: identifier)
             }
         }
@@ -99,11 +112,10 @@ class MultipleLayoutsViewController: UICollectionViewController {
     }
 
     private func updateUI(animated: Bool = false) {
-        let sections = Array(0..<10)
-        var snapshot = NSDiffableDataSourceSnapshot<Int, MultipleItem>()
+        var snapshot = NSDiffableDataSourceSnapshot<SectionItem, MultipleItem>()
         snapshot.appendSections(sections)
         for section in sections {
-            let items = Array(0..<5).map { MultipleItem(value: $0) }
+            let items = Array(0..<15).map { MultipleItem(value: $0) }
             snapshot.appendItems(items, toSection: section)
         }
         dataSource?.apply(snapshot, animatingDifferences: animated)
@@ -111,23 +123,18 @@ class MultipleLayoutsViewController: UICollectionViewController {
 
 }
 
-
 // MARK: - Sections
 
 extension MultipleLayoutsViewController {
 
-    enum Section {
-        case main
-        case secondary
+    struct SectionItem: Hashable {
+        private let uuid = UUID()
+        let type: SectionType
+    }
 
-        var items: [Int] {
-            switch self {
-            case .main:
-                return Array(1..<6)
-            case .secondary:
-                return Array(6..<15)
-            }
-        }
+    enum SectionType: Hashable {
+        case orthogonal
+        case list
     }
 
 }

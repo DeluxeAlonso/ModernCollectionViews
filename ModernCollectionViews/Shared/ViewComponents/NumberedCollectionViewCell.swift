@@ -52,10 +52,10 @@ final class NumberedCollectionViewCell: UICollectionViewCell {
     private func setupLabels() {
         addSubview(numberLabel)
         NSLayoutConstraint.activate([
-            numberLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            numberLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            numberLabel.topAnchor.constraint(equalTo: topAnchor),
-            numberLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+            numberLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            numberLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            numberLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            numberLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
         ])
     }
     
