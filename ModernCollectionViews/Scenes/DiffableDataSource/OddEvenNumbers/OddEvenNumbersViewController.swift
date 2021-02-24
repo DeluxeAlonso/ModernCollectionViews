@@ -1,5 +1,5 @@
 //
-//  DiffableDataSourceTopicViewController.swift
+//  OddEvenNumbersViewController.swift
 //  ModernCollectionViews
 //
 //  Created by Alonso on 10/4/20.
@@ -8,27 +8,27 @@
 import UIKit
 import Combine
 
-final class DiffableDataSourceTopicViewController: UIViewController {
+final class OddEvenNumbersViewController: UIViewController {
     
     enum Section {
         case main
     }
     
-    private var topicView: DiffableDataSourceTopicView!
-    private let viewModel: DiffableDataSourceTopicViewModelProtocol
-    private let factory: DiffableDataSourceTopicViewFactoryProtocol
+    private var topicView: OddEvenNumbersView!
+    private let viewModel: OddEvenNumbersViewModelProtocol
+    private let factory: OddEvenNumbersViewFactoryProtocol
     
     private var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
     private var currentSnapshot: NSDiffableDataSourceSnapshot<Section, Int>!
     
     private var cancellables: Set<AnyCancellable> = []
     
-    weak var coordinator: DiffableDataSourceTopicCoordinatorProtocol?
+    weak var coordinator: OddEvenNumbersCoordinatorProtocol?
     
     // MARK: - Initializers
 
-    init(viewModel: DiffableDataSourceTopicViewModelProtocol,
-         factory: DiffableDataSourceTopicViewFactoryProtocol) {
+    init(viewModel: OddEvenNumbersViewModelProtocol,
+         factory: OddEvenNumbersViewFactoryProtocol) {
         self.viewModel = viewModel
         self.factory = factory
         super.init(nibName: nil, bundle: nil)
@@ -41,13 +41,13 @@ final class DiffableDataSourceTopicViewController: UIViewController {
     // MARK: - Lifycycle
     
     override func loadView() {
-        topicView = DiffableDataSourceTopicView()
+        topicView = OddEvenNumbersView()
         view = topicView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "UICollectionViewDiffableDataSource"
+        title = "Odd/Even numbers"
         
         configureUI()
         configureBindings()

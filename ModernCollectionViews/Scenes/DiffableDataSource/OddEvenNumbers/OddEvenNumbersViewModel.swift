@@ -1,5 +1,5 @@
 //
-//  DiffableDataSourceTopicViewModel.swift
+//  OddEvenNumbersViewModel.swift
 //  ModernCollectionViews
 //
 //  Created by Alonso on 10/12/20.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class DiffableDataSourceTopicViewModel: DiffableDataSourceTopicViewModelProtocol {
+final class OddEvenNumbersViewModel: OddEvenNumbersViewModelProtocol {
     
     @Published var numbersToDisplay: [Int] = []
     

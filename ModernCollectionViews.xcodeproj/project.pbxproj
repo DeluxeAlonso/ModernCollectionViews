@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E21710312537EDB200C1CFD8 /* DiffableDataSourceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21710302537EDB200C1CFD8 /* DiffableDataSourceProtocols.swift */; };
+		E21710312537EDB200C1CFD8 /* OddEvenNumbersProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21710302537EDB200C1CFD8 /* OddEvenNumbersProtocols.swift */; };
 		E21710392537F02D00C1CFD8 /* CompositionalLayoutProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21710382537F02D00C1CFD8 /* CompositionalLayoutProtocols.swift */; };
 		E21710412537F08000C1CFD8 /* MainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21710402537F08000C1CFD8 /* MainProtocols.swift */; };
 		E217104C2537F42400C1CFD8 /* MainViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217104B2537F42400C1CFD8 /* MainViewFactory.swift */; };
@@ -20,8 +20,18 @@
 		E268A50325E42B1E006B3A8F /* MultipleLayoutsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268A50225E42B1E006B3A8F /* MultipleLayoutsCoordinator.swift */; };
 		E268A57225E44009006B3A8F /* MultipleLayoutsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E268A57125E44009006B3A8F /* MultipleLayoutsViewFactory.swift */; };
 		E2696B252533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696B242533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift */; };
-		E2696B2A253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696B29253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift */; };
-		E2696B2F253422B500A13F9D /* DiffableDataSourceTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696B2E253422B500A13F9D /* DiffableDataSourceTopicViewModel.swift */; };
+		E2696B2A253412FA00A13F9D /* OddEvenNumbersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696B29253412FA00A13F9D /* OddEvenNumbersCoordinator.swift */; };
+		E2696B2F253422B500A13F9D /* OddEvenNumbersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2696B2E253422B500A13F9D /* OddEvenNumbersViewModel.swift */; };
+		E26B734025E5B995000C28B8 /* DiffableDataSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B733F25E5B995000C28B8 /* DiffableDataSourceViewController.swift */; };
+		E26B734525E5B9A7000C28B8 /* DiffableDataSourceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B734425E5B9A7000C28B8 /* DiffableDataSourceCoordinator.swift */; };
+		E26B734A25E5FFCA000C28B8 /* BluetoothSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B734925E5FFCA000C28B8 /* BluetoothSettingsViewController.swift */; };
+		E26B734F25E60003000C28B8 /* BluetoothSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B734E25E60003000C28B8 /* BluetoothSettingsCoordinator.swift */; };
+		E26B735525E60D1C000C28B8 /* BluetoothItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B735425E60D1C000C28B8 /* BluetoothItem.swift */; };
+		E26B735B25E60EFA000C28B8 /* SquareLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B735A25E60EFA000C28B8 /* SquareLayout.swift */; };
+		E26B736325E60F70000C28B8 /* LayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B736225E60F70000C28B8 /* LayoutProtocol.swift */; };
+		E26B736825E60FD2000C28B8 /* ListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B736725E60FD2000C28B8 /* ListLayout.swift */; };
+		E26B736D25E60FE4000C28B8 /* NestedGroupLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B736C25E60FE4000C28B8 /* NestedGroupLayout.swift */; };
+		E26B737225E61046000C28B8 /* NestedGroupV2Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B737125E61046000C28B8 /* NestedGroupV2Layout.swift */; };
 		E272304825300AAC004D876A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272304725300AAC004D876A /* Coordinator.swift */; };
 		E272304D253010B9004D876A /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272304C253010B9004D876A /* MainCoordinator.swift */; };
 		E2796CCB25E31A95006AAF24 /* Appearance+Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2796CCA25E31A95006AAF24 /* Appearance+Title.swift */; };
@@ -37,9 +47,9 @@
 		E2B5FA11252D7C5B0018293C /* MainViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA0D252D7C5A0018293C /* MainViewSection.swift */; };
 		E2B5FA13252D7C5B0018293C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA0F252D7C5B0018293C /* MainViewController.swift */; };
 		E2B5FA1A252D7C720018293C /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA19252D7C720018293C /* SectionHeaderView.swift */; };
-		E2B5FA27252D7C7F0018293C /* DiffableDataSourceTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA1F252D7C7F0018293C /* DiffableDataSourceTopicViewController.swift */; };
-		E2B5FA28252D7C7F0018293C /* DiffableDataSourceTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA20252D7C7F0018293C /* DiffableDataSourceTopicView.swift */; };
-		E2B5FA29252D7C7F0018293C /* DiffableDataSourceTopicViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA21252D7C7F0018293C /* DiffableDataSourceTopicViewFactory.swift */; };
+		E2B5FA27252D7C7F0018293C /* OddEvenNumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA1F252D7C7F0018293C /* OddEvenNumbersViewController.swift */; };
+		E2B5FA28252D7C7F0018293C /* OddEvenNumbersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA20252D7C7F0018293C /* OddEvenNumbersView.swift */; };
+		E2B5FA29252D7C7F0018293C /* OddEvenNumbersViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA21252D7C7F0018293C /* OddEvenNumbersViewFactory.swift */; };
 		E2B5FA2A252D7C7F0018293C /* CompositionalLayoutTopicViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA23252D7C7F0018293C /* CompositionalLayoutTopicViewFactory.swift */; };
 		E2B5FA2B252D7C7F0018293C /* CompositionalLayoutTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA24252D7C7F0018293C /* CompositionalLayoutTopicViewController.swift */; };
 		E2B5FA2C252D7C7F0018293C /* ListsTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5FA26252D7C7F0018293C /* ListsTopicViewController.swift */; };
@@ -67,7 +77,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E21710302537EDB200C1CFD8 /* DiffableDataSourceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceProtocols.swift; sourceTree = "<group>"; };
+		E21710302537EDB200C1CFD8 /* OddEvenNumbersProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddEvenNumbersProtocols.swift; sourceTree = "<group>"; };
 		E21710382537F02D00C1CFD8 /* CompositionalLayoutProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutProtocols.swift; sourceTree = "<group>"; };
 		E21710402537F08000C1CFD8 /* MainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProtocols.swift; sourceTree = "<group>"; };
 		E217104B2537F42400C1CFD8 /* MainViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewFactory.swift; sourceTree = "<group>"; };
@@ -80,8 +90,18 @@
 		E268A50225E42B1E006B3A8F /* MultipleLayoutsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleLayoutsCoordinator.swift; sourceTree = "<group>"; };
 		E268A57125E44009006B3A8F /* MultipleLayoutsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleLayoutsViewFactory.swift; sourceTree = "<group>"; };
 		E2696B242533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutTopicCoordinator.swift; sourceTree = "<group>"; };
-		E2696B29253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceTopicCoordinator.swift; sourceTree = "<group>"; };
-		E2696B2E253422B500A13F9D /* DiffableDataSourceTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceTopicViewModel.swift; sourceTree = "<group>"; };
+		E2696B29253412FA00A13F9D /* OddEvenNumbersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddEvenNumbersCoordinator.swift; sourceTree = "<group>"; };
+		E2696B2E253422B500A13F9D /* OddEvenNumbersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddEvenNumbersViewModel.swift; sourceTree = "<group>"; };
+		E26B733F25E5B995000C28B8 /* DiffableDataSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceViewController.swift; sourceTree = "<group>"; };
+		E26B734425E5B9A7000C28B8 /* DiffableDataSourceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceCoordinator.swift; sourceTree = "<group>"; };
+		E26B734925E5FFCA000C28B8 /* BluetoothSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothSettingsViewController.swift; sourceTree = "<group>"; };
+		E26B734E25E60003000C28B8 /* BluetoothSettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothSettingsCoordinator.swift; sourceTree = "<group>"; };
+		E26B735425E60D1C000C28B8 /* BluetoothItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothItem.swift; sourceTree = "<group>"; };
+		E26B735A25E60EFA000C28B8 /* SquareLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareLayout.swift; sourceTree = "<group>"; };
+		E26B736225E60F70000C28B8 /* LayoutProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutProtocol.swift; sourceTree = "<group>"; };
+		E26B736725E60FD2000C28B8 /* ListLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayout.swift; sourceTree = "<group>"; };
+		E26B736C25E60FE4000C28B8 /* NestedGroupLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroupLayout.swift; sourceTree = "<group>"; };
+		E26B737125E61046000C28B8 /* NestedGroupV2Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroupV2Layout.swift; sourceTree = "<group>"; };
 		E272304725300AAC004D876A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E272304C253010B9004D876A /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		E2796CCA25E31A95006AAF24 /* Appearance+Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appearance+Title.swift"; sourceTree = "<group>"; };
@@ -103,9 +123,9 @@
 		E2B5FA0D252D7C5A0018293C /* MainViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewSection.swift; sourceTree = "<group>"; };
 		E2B5FA0F252D7C5B0018293C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E2B5FA19252D7C720018293C /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
-		E2B5FA1F252D7C7F0018293C /* DiffableDataSourceTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceTopicViewController.swift; sourceTree = "<group>"; };
-		E2B5FA20252D7C7F0018293C /* DiffableDataSourceTopicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceTopicView.swift; sourceTree = "<group>"; };
-		E2B5FA21252D7C7F0018293C /* DiffableDataSourceTopicViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceTopicViewFactory.swift; sourceTree = "<group>"; };
+		E2B5FA1F252D7C7F0018293C /* OddEvenNumbersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OddEvenNumbersViewController.swift; sourceTree = "<group>"; };
+		E2B5FA20252D7C7F0018293C /* OddEvenNumbersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OddEvenNumbersView.swift; sourceTree = "<group>"; };
+		E2B5FA21252D7C7F0018293C /* OddEvenNumbersViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OddEvenNumbersViewFactory.swift; sourceTree = "<group>"; };
 		E2B5FA23252D7C7F0018293C /* CompositionalLayoutTopicViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutTopicViewFactory.swift; sourceTree = "<group>"; };
 		E2B5FA24252D7C7F0018293C /* CompositionalLayoutTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutTopicViewController.swift; sourceTree = "<group>"; };
 		E2B5FA26252D7C7F0018293C /* ListsTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsTopicViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +178,41 @@
 				E268A57125E44009006B3A8F /* MultipleLayoutsViewFactory.swift */,
 			);
 			path = MultipleLayouts;
+			sourceTree = "<group>";
+		};
+		E26B732E25E5B71E000C28B8 /* OddEvenNumbers */ = {
+			isa = PBXGroup;
+			children = (
+				E21710302537EDB200C1CFD8 /* OddEvenNumbersProtocols.swift */,
+				E2B5FA1F252D7C7F0018293C /* OddEvenNumbersViewController.swift */,
+				E2B5FA20252D7C7F0018293C /* OddEvenNumbersView.swift */,
+				E2B5FA21252D7C7F0018293C /* OddEvenNumbersViewFactory.swift */,
+				E2696B29253412FA00A13F9D /* OddEvenNumbersCoordinator.swift */,
+				E2696B2E253422B500A13F9D /* OddEvenNumbersViewModel.swift */,
+			);
+			path = OddEvenNumbers;
+			sourceTree = "<group>";
+		};
+		E26B732F25E5B733000C28B8 /* BluetoothSettings */ = {
+			isa = PBXGroup;
+			children = (
+				E26B734925E5FFCA000C28B8 /* BluetoothSettingsViewController.swift */,
+				E26B734E25E60003000C28B8 /* BluetoothSettingsCoordinator.swift */,
+				E26B735425E60D1C000C28B8 /* BluetoothItem.swift */,
+			);
+			path = BluetoothSettings;
+			sourceTree = "<group>";
+		};
+		E26B735925E60ED8000C28B8 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				E26B736225E60F70000C28B8 /* LayoutProtocol.swift */,
+				E26B735A25E60EFA000C28B8 /* SquareLayout.swift */,
+				E26B736C25E60FE4000C28B8 /* NestedGroupLayout.swift */,
+				E26B737125E61046000C28B8 /* NestedGroupV2Layout.swift */,
+				E26B736725E60FD2000C28B8 /* ListLayout.swift */,
+			);
+			path = Layouts;
 			sourceTree = "<group>";
 		};
 		E2796CC925E31A84006AAF24 /* Extensions */ = {
@@ -278,12 +333,10 @@
 		E2B5FA1E252D7C7F0018293C /* DiffableDataSource */ = {
 			isa = PBXGroup;
 			children = (
-				E21710302537EDB200C1CFD8 /* DiffableDataSourceProtocols.swift */,
-				E2B5FA1F252D7C7F0018293C /* DiffableDataSourceTopicViewController.swift */,
-				E2B5FA20252D7C7F0018293C /* DiffableDataSourceTopicView.swift */,
-				E2B5FA21252D7C7F0018293C /* DiffableDataSourceTopicViewFactory.swift */,
-				E2696B29253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift */,
-				E2696B2E253422B500A13F9D /* DiffableDataSourceTopicViewModel.swift */,
+				E26B732F25E5B733000C28B8 /* BluetoothSettings */,
+				E26B732E25E5B71E000C28B8 /* OddEvenNumbers */,
+				E26B733F25E5B995000C28B8 /* DiffableDataSourceViewController.swift */,
+				E26B734425E5B9A7000C28B8 /* DiffableDataSourceCoordinator.swift */,
 			);
 			path = DiffableDataSource;
 			sourceTree = "<group>";
@@ -291,6 +344,7 @@
 		E2B5FA22252D7C7F0018293C /* CompositionalLayout */ = {
 			isa = PBXGroup;
 			children = (
+				E26B735925E60ED8000C28B8 /* Layouts */,
 				E21710382537F02D00C1CFD8 /* CompositionalLayoutProtocols.swift */,
 				E2B5FA23252D7C7F0018293C /* CompositionalLayoutTopicViewFactory.swift */,
 				E2B5FA24252D7C7F0018293C /* CompositionalLayoutTopicViewController.swift */,
@@ -465,14 +519,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2696B2A253412FA00A13F9D /* DiffableDataSourceTopicCoordinator.swift in Sources */,
+				E26B734525E5B9A7000C28B8 /* DiffableDataSourceCoordinator.swift in Sources */,
+				E2696B2A253412FA00A13F9D /* OddEvenNumbersCoordinator.swift in Sources */,
 				E2796CE125E33950006AAF24 /* OtherCapabilitiesCoordinator.swift in Sources */,
+				E26B736D25E60FE4000C28B8 /* NestedGroupLayout.swift in Sources */,
+				E26B734A25E5FFCA000C28B8 /* BluetoothSettingsViewController.swift in Sources */,
 				E2B5FA2B252D7C7F0018293C /* CompositionalLayoutTopicViewController.swift in Sources */,
 				E2B5FA11252D7C5B0018293C /* MainViewSection.swift in Sources */,
+				E26B734025E5B995000C28B8 /* DiffableDataSourceViewController.swift in Sources */,
 				E217104C2537F42400C1CFD8 /* MainViewFactory.swift in Sources */,
 				E2B5F9CC252D7BE60018293C /* AppDelegate.swift in Sources */,
 				E2B5F9CE252D7BE60018293C /* SceneDelegate.swift in Sources */,
-				E2B5FA27252D7C7F0018293C /* DiffableDataSourceTopicViewController.swift in Sources */,
+				E2B5FA27252D7C7F0018293C /* OddEvenNumbersViewController.swift in Sources */,
 				E25B40D825E22DFD0030ABD9 /* CellRegistrationTopicContentConfiguration.swift in Sources */,
 				E2B5FA38252D7C930018293C /* UICollectionView+Dequeuing.swift in Sources */,
 				E268A4FB25E42B12006B3A8F /* MultipleLayoutsViewController.swift in Sources */,
@@ -480,9 +538,10 @@
 				E268A57225E44009006B3A8F /* MultipleLayoutsViewFactory.swift in Sources */,
 				E2796CD025E31C54006AAF24 /* CellRegistrationCoordinator.swift in Sources */,
 				E25B40CA25E2293C0030ABD9 /* ListsTopicContentAppearance.swift in Sources */,
-				E2B5FA29252D7C7F0018293C /* DiffableDataSourceTopicViewFactory.swift in Sources */,
+				E2B5FA29252D7C7F0018293C /* OddEvenNumbersViewFactory.swift in Sources */,
 				E272304825300AAC004D876A /* Coordinator.swift in Sources */,
-				E2B5FA28252D7C7F0018293C /* DiffableDataSourceTopicView.swift in Sources */,
+				E2B5FA28252D7C7F0018293C /* OddEvenNumbersView.swift in Sources */,
+				E26B735525E60D1C000C28B8 /* BluetoothItem.swift in Sources */,
 				E21710392537F02D00C1CFD8 /* CompositionalLayoutProtocols.swift in Sources */,
 				E2391EE22532D408004E49AB /* ListTopicCoordinator.swift in Sources */,
 				E2B5FA2C252D7C7F0018293C /* ListsTopicViewController.swift in Sources */,
@@ -491,14 +550,19 @@
 				E2796CCB25E31A95006AAF24 /* Appearance+Title.swift in Sources */,
 				E21710412537F08000C1CFD8 /* MainProtocols.swift in Sources */,
 				E268A4F225E41D43006B3A8F /* OtherCapabilitiesItemModel.swift in Sources */,
+				E26B736325E60F70000C28B8 /* LayoutProtocol.swift in Sources */,
+				E26B735B25E60EFA000C28B8 /* SquareLayout.swift in Sources */,
 				E2B5FA13252D7C5B0018293C /* MainViewController.swift in Sources */,
 				E25B40D025E22DAC0030ABD9 /* CellRegistrationViewController.swift in Sources */,
 				E272304D253010B9004D876A /* MainCoordinator.swift in Sources */,
-				E2696B2F253422B500A13F9D /* DiffableDataSourceTopicViewModel.swift in Sources */,
+				E26B734F25E60003000C28B8 /* BluetoothSettingsCoordinator.swift in Sources */,
+				E2696B2F253422B500A13F9D /* OddEvenNumbersViewModel.swift in Sources */,
+				E26B737225E61046000C28B8 /* NestedGroupV2Layout.swift in Sources */,
 				E2B5FA2A252D7C7F0018293C /* CompositionalLayoutTopicViewFactory.swift in Sources */,
-				E21710312537EDB200C1CFD8 /* DiffableDataSourceProtocols.swift in Sources */,
+				E21710312537EDB200C1CFD8 /* OddEvenNumbersProtocols.swift in Sources */,
 				E268A50325E42B1E006B3A8F /* MultipleLayoutsCoordinator.swift in Sources */,
 				E2B5FA39252D7C930018293C /* Array+Filtering.swift in Sources */,
+				E26B736825E60FD2000C28B8 /* ListLayout.swift in Sources */,
 				E2B5FA3A252D7C930018293C /* NumberedCollectionViewCell.swift in Sources */,
 				E2696B252533E97D00A13F9D /* CompositionalLayoutTopicCoordinator.swift in Sources */,
 			);

@@ -66,7 +66,6 @@ final class ListsTopicViewController: UICollectionViewController {
     
     private func makeCollectionViewLayout(using appearance: UICollectionLayoutListConfiguration.Appearance) -> UICollectionViewLayout {
         let configuration = UICollectionLayoutListConfiguration(appearance: appearance)
-        
         return UICollectionViewCompositionalLayout.list(using: configuration)
     }
 
@@ -103,6 +102,11 @@ extension ListsTopicViewController {
 
         let section = Section.allCases[indexPath.section]
         let item = section.items[indexPath.row]
+
+        let tableviewCell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
+        tableviewCell.textLabel?.text = "Row \(item)"
+        tableviewCell.detailTextLabel?.text = "Value"
+        tableviewCell.imageView?.image = UIImage(systemName: "applelogo")
 
         var contentConfiguration = UIListContentConfiguration.valueCell()
         contentConfiguration.text = "Row \(item)"

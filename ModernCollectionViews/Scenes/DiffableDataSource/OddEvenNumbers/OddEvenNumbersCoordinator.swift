@@ -1,5 +1,5 @@
 //
-//  DiffableDataSourceTopicCoordinator.swift
+//  OddEvenNumbersCoordinator.swift
 //  ModernCollectionViews
 //
 //  Created by Alonso on 10/11/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DiffableDataSourceTopicCoordinator: Coordinator, DiffableDataSourceTopicCoordinatorProtocol {
+final class OddEvenNumbersCoordinator: Coordinator, OddEvenNumbersCoordinatorProtocol {
     
     var childCoordinators: [Coordinator] = []
     var parentCoordinator: Coordinator?
@@ -18,9 +18,9 @@ final class DiffableDataSourceTopicCoordinator: Coordinator, DiffableDataSourceT
     }
     
     func start() {
-        let viewModel = DiffableDataSourceTopicViewModel(numbers: Array(0..<100))
-        let factory = DiffableDataSourceTopicViewFactory()
-        let viewController = DiffableDataSourceTopicViewController(viewModel: viewModel,
+        let viewModel = OddEvenNumbersViewModel(numbers: Array(0..<100))
+        let factory = OddEvenNumbersViewFactory()
+        let viewController = OddEvenNumbersViewController(viewModel: viewModel,
                                                                    factory: factory)
         
         viewController.coordinator = self

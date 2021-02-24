@@ -36,7 +36,7 @@ final class MainCoordinator: NSObject, Coordinator, MainCoordinatorProtocol {
         case .compositionalLayouts:
             coordinator = CompositionalLayoutTopicCoordinator(navigationController: navigationController)
         case .diffableDataSources:
-            coordinator = DiffableDataSourceTopicCoordinator(navigationController: navigationController)
+            coordinator = DiffableDataSourceCoordinator(navigationController: navigationController)
         case .cellRegistration:
             coordinator = CellRegistrationCoordinator(navigationController: navigationController)
         case .multipleLayouts:

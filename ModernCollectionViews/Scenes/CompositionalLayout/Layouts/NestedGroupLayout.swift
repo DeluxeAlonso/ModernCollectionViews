@@ -1,32 +1,36 @@
 //
-//  DiffableDataSourceTopicViewFactory.swift
+//  NestedGroupLayout.swift
 //  ModernCollectionViews
 //
-//  Created by Alonso on 10/5/20.
+//  Created by Alonso on 2/23/21.
 //
 
 import UIKit
 
-struct DiffableDataSourceTopicViewFactory: DiffableDataSourceTopicViewFactoryProtocol {
-    
+class NestedGroupLayout: LayoutProtocol {
+
+    var title: String {
+        return "Nested groups"
+    }
+
     private var topItem: NSCollectionLayoutItem {
         let topItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                  heightDimension: .fractionalWidth(0.5))
         let topItem = NSCollectionLayoutItem(layoutSize: topItemSize)
         topItem.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
-        
+
         return topItem
     }
-    
+
     private var bottomItem: NSCollectionLayoutItem {
         let bottomItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
         let bottomItem = NSCollectionLayoutItem(layoutSize: bottomItemSize)
         bottomItem.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
-        
+
         return bottomItem
     }
-    
-    func makeCollectionViewLayout() -> UICollectionViewLayout {
+
+    func makeLayout() -> UICollectionViewLayout {
 
         // Group for bottom item, it repeats the bottom item twice
         let bottomGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
@@ -46,5 +50,5 @@ struct DiffableDataSourceTopicViewFactory: DiffableDataSourceTopicViewFactoryPro
 
         return layout
     }
-    
+
 }
