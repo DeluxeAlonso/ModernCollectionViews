@@ -1,5 +1,5 @@
 //
-//  DiffableDataSourceTopicView.swift
+//  OddEvenNumbersView.swift
 //  ModernCollectionViews
 //
 //  Created by Alonso on 10/4/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DiffableDataSourceTopicView: UIView {
+final class OddEvenNumbersView: UIView {
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewLayout()

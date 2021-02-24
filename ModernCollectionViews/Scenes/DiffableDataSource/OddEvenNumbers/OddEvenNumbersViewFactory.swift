@@ -1,5 +1,5 @@
 //
-//  DiffableDataSourceTopicViewFactory.swift
+//  OddEvenNumbersViewFactory.swift
 //  ModernCollectionViews
 //
 //  Created by Alonso on 10/5/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct DiffableDataSourceTopicViewFactory: DiffableDataSourceTopicViewFactoryProtocol {
+struct OddEvenNumbersViewFactory: OddEvenNumbersViewFactoryProtocol {
     
     private var topItem: NSCollectionLayoutItem {
         let topItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
