@@ -11,4 +11,4 @@ protocol CompositionalLayoutTopicViewFactoryProtocol {
     func makeCollectionViewLayouts() -> [LayoutProtocol]
 }
 
-protocol CompositionalLayoutTopicCoordinatorProtocol: class {}
+protocol CompositionalLayoutTopicCoordinatorProtocol: AnyObject {}

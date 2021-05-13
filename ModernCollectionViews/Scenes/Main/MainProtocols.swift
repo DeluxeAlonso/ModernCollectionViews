@@ -8,12 +8,16 @@
 import UIKit
 
 protocol MainViewModelProtocol {
+
     func topics(for section: MainViewSection) -> [Topic]
     func topic(for index: Int, at section: MainViewSection) -> Topic
+
 }
 
-protocol MainCoordinatorProtocol: class {
+protocol MainCoordinatorProtocol: AnyObject {
+
     func showTopic(_ topic: Topic)
+
 }
 
 protocol MainViewFactoryProtocol {

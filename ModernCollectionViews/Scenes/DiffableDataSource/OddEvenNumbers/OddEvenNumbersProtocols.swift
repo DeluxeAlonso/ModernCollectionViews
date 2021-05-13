@@ -18,7 +18,7 @@ protocol OddEvenNumbersViewModelProtocol {
 
 }
 
-protocol OddEvenNumbersCoordinatorProtocol: class {}
+protocol OddEvenNumbersCoordinatorProtocol: AnyObject {}
 
 protocol OddEvenNumbersViewFactoryProtocol {
 
