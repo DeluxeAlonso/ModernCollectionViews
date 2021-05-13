@@ -5,13 +5,9 @@
 //  Created by Alonso on 2/22/21.
 //
 
-import Foundation
-
 import UIKit
 
-protocol MultipleLayoutsCoordinatorProtocol: class {
-
-}
+protocol MultipleLayoutsCoordinatorProtocol: AnyObject {}
 
 final class MultipleLayoutsCoordinator: Coordinator, MultipleLayoutsCoordinatorProtocol {
 

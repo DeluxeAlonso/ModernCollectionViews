@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol DiffableDataSourceCoordinatorProtocol: class {
+protocol DiffableDataSourceCoordinatorProtocol: AnyObject {
 
     func showOddEvenNumbers()
     func showBluetoothSettings()
