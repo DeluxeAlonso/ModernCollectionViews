@@ -5,8 +5,6 @@
 //  Created by Alonso on 10/14/20.
 //
 
-import UIKit
-
 protocol CompositionalLayoutTopicViewFactoryProtocol {
     func makeCollectionViewLayouts() -> [LayoutProtocol]
 }
