@@ -7,9 +7,9 @@
 
 import UIKit
 
-protocol BluetoothSettingsCoordinatorProtocol: AnyObject {}
+protocol BluetoothSettingsCoordinatorProtocol: Coordinator {}
 
-final class BluetoothSettingsCoordinator: Coordinator, BluetoothSettingsCoordinatorProtocol {
+final class BluetoothSettingsCoordinator: BluetoothSettingsCoordinatorProtocol {
 
     var childCoordinators: [Coordinator] = []
     var parentCoordinator: Coordinator?

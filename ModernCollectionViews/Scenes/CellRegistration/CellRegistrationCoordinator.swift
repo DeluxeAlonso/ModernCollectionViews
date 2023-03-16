@@ -7,9 +7,9 @@
 
 import UIKit
 
-protocol CellRegistrationCoordinatorProtocol: AnyObject {}
+protocol CellRegistrationCoordinatorProtocol: Coordinator {}
 
-final class CellRegistrationCoordinator: Coordinator, CellRegistrationCoordinatorProtocol {
+final class CellRegistrationCoordinator: CellRegistrationCoordinatorProtocol {
 
     var childCoordinators: [Coordinator] = []
     var parentCoordinator: Coordinator?

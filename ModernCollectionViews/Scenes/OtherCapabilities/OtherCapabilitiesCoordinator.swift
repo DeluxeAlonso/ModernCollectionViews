@@ -7,9 +7,9 @@
 
 import UIKit
 
-protocol OtherCapabilitiesCoordinatorProtocol: AnyObject {}
+protocol OtherCapabilitiesCoordinatorProtocol: Coordinator {}
 
-final class OtherCapabilitiesCoordinator: Coordinator, OtherCapabilitiesCoordinatorProtocol {
+final class OtherCapabilitiesCoordinator: OtherCapabilitiesCoordinatorProtocol {
 
     var childCoordinators: [Coordinator] = []
     var parentCoordinator: Coordinator?
