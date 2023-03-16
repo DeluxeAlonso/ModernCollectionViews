@@ -7,9 +7,7 @@
 
 import UIKit
 
-protocol ListTopicCoordinatorProtocol: class {
-    
-}
+protocol ListTopicCoordinatorProtocol: AnyObject {}
 
 final class ListTopicCoordinator: Coordinator, ListTopicCoordinatorProtocol {
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol BluetoothSettingsCoordinatorProtocol: class {}
+protocol BluetoothSettingsCoordinatorProtocol: AnyObject {}
 
 final class BluetoothSettingsCoordinator: Coordinator, BluetoothSettingsCoordinatorProtocol {
 

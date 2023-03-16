@@ -7,9 +7,7 @@
 
 import UIKit
 
-protocol OtherCapabilitiesCoordinatorProtocol: class {
-
-}
+protocol OtherCapabilitiesCoordinatorProtocol: AnyObject {}
 
 final class OtherCapabilitiesCoordinator: Coordinator, OtherCapabilitiesCoordinatorProtocol {
 

@@ -7,9 +7,7 @@
 
 import UIKit
 
-protocol CellRegistrationCoordinatorProtocol: class {
-
-}
+protocol CellRegistrationCoordinatorProtocol: AnyObject {}
 
 final class CellRegistrationCoordinator: Coordinator, CellRegistrationCoordinatorProtocol {
 
