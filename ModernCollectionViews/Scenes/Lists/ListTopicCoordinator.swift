@@ -7,11 +7,9 @@
 
 import UIKit
 
-protocol ListTopicCoordinatorProtocol: class {
-    
-}
+protocol ListTopicCoordinatorProtocol: Coordinator {}
 
-final class ListTopicCoordinator: Coordinator, ListTopicCoordinatorProtocol {
+final class ListTopicCoordinator: ListTopicCoordinatorProtocol {
     
     var childCoordinators: [Coordinator] = []
     var parentCoordinator: Coordinator?
